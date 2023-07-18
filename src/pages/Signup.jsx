@@ -38,12 +38,30 @@ const Signup = () => {
       navigate("/login");
     }
   };
+
+  document.getElementsByTagName("title")[0].text="Signup"
+  function role_change(){
+    const role = document.getElementsByTagName("select")[0];
+    const roll_no = document.getElementById("student_div");
+    if(role.value === "teacher"){
+        roll_no.style.display = "none";
+    }
+    else{
+        roll_no.style.display = "block";
+    }
+  }
   return (
     <div className=" ">
       <form
         onSubmit={handleSubmit}
         className=" font-sans flex flex-col justify-center items-center p-10 gap-10"
       >
+        <div className="flex flex-col justify-center gap-3 items-center w-full">
+            <select name="role_dropdown" id="role_dropdown" onChange={role_change}>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+        </div> 
         <div className="flex flex-col justify-center gap-3 items-center w-full">
           <label htmlFor="fullname" className="text-2xl uppercase">
             Full name
@@ -55,6 +73,94 @@ const Signup = () => {
             name="fullname"
             id="fullname"
             value={credentials.fullname}
+            required
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="flex flex-col justify-center gap-3 items-center w-full">
+          <label htmlFor="email" className="text-2xl uppercase">
+            Email
+          </label>
+          <input
+            className=" bg-gray-200 w-80 p-2 rounded-lg "
+            type="email"
+            name="email"
+            id="email"
+            placeholder="joemama@gmail.com"
+            value={credentials.email}
+            required
+            onChange={handleChange}
+          />
+        </div>
+
+        <div id="teacher_div">
+
+        </div>
+
+
+        <div id="student_div" className="hidden">
+            <div className="flex flex-col justify-center gap-3 items-center w-full">
+            <label htmlFor="roll_no" className="text-2xl uppercase">
+                Roll Number
+            </label>
+            <input
+                className=" bg-gray-200 w-80 p-2 rounded-lg "
+                type="text"
+                name="roll_no"
+                id="roll_no"
+                placeholder="12341234"
+                value={credentials.roll_no}
+                required
+                onChange={handleChange}
+            />
+            </div>
+        </div>
+        <div className="flex flex-col justify-center gap-3 items-center w-full">
+            <label htmlFor="standard" className="text-2xl uppercase">
+                Standard
+            </label>
+            <input
+                className=" bg-gray-200 w-80 p-2 rounded-lg "
+                type="text"
+                name="standard"
+                id="standard"
+                placeholder="1"
+                value={credentials.standard}
+                required
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="flex flex-col justify-center gap-3 items-center w-full">
+        <label htmlFor="section" className="text-2xl uppercase">
+            section
+        </label>
+        <input
+            className=" bg-gray-200 w-80 p-2 rounded-lg "
+            type="text"
+            name="section"
+            id="section"
+            placeholder="A"
+            value={credentials.section}
+            required
+            onChange={handleChange}
+        />
+        </div>
+
+
+        <div className="flex flex-col justify-center gap-3 items-center w-full m-5">
+          <label htmlFor="address" className="text-2xl uppercase">
+            address
+          </label>
+          <input
+            className=" bg-gray-200 w-80 p-2 rounded-lg "
+            type="textbox"
+            placeholder="*******"
+            name="address"
+            id="address"
+            value={credentials.address}
+            required
             onChange={handleChange}
           />
         </div>
@@ -70,23 +176,11 @@ const Signup = () => {
             name="password"
             id="password"
             value={credentials.password}
+            required
             onChange={handleChange}
           />
         </div>
-        <div className="flex flex-col justify-center gap-3 items-center w-full">
-          <label htmlFor="email" className="text-2xl uppercase">
-            Email
-          </label>
-          <input
-            className=" bg-gray-200 w-80 p-2 rounded-lg "
-            type="email"
-            name="email"
-            id="email"
-            placeholder="joemama@gmail.com"
-            value={credentials.email}
-            onChange={handleChange}
-          />
-        </div>
+
 
         <div className="flex flex-col items-end w-80">
           <button
@@ -106,5 +200,6 @@ const Signup = () => {
     </div>
   );
 };
+
 
 export default Signup;

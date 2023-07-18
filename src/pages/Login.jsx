@@ -40,7 +40,7 @@ const Login = (props) => {
       navigate("/");
     }
   };
-
+  document.getElementsByTagName("title")[0].text="Login"
   return (
     <div className=" ">
         <Header/>
@@ -59,7 +59,6 @@ const Login = (props) => {
             name="email"
             id="email"
             value={credentials.email}
-            onChange={handleChange}
           />
         </div>
         <div className="flex flex-col justify-center gap-3 items-center w-full m-5">
