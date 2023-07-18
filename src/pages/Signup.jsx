@@ -38,7 +38,6 @@ const Signup = () => {
       navigate("/login");
     }
   };
-
   return (
     <div className=" ">
       <form
@@ -59,6 +58,7 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
+
         <div className="flex flex-col justify-center gap-3 items-center w-full m-5">
           <label htmlFor="password" className="text-2xl uppercase">
             Password
@@ -87,6 +87,7 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
+
         <div className="flex flex-col items-end w-80">
           <button
             type="submit"
