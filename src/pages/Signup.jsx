@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -40,16 +41,24 @@ const Signup = () => {
   };
 
   document.getElementsByTagName("title")[0].text="Signup"
-  function role_change(){
-    const role = document.getElementsByTagName("select")[0];
-    const roll_no = document.getElementById("student_div");
-    if(role.value === "teacher"){
-        roll_no.style.display = "none";
+
+
+useEffect(() => {
+    const role = document.getElementById("role_dropdown");
+    console.log(role);
+    role.onchange = function(){
+      const roll_no = document.getElementById("student_div");
+      if(role.value === "teacher"){
+          roll_no.style.display = "none";
+      }
+      else{
+          roll_no.style.display = "block";
+      }
+  
     }
-    else{
-        roll_no.style.display = "block";
-    }
-  }
+}, [])
+
+
   return (
     <div className=" ">
       <form
@@ -57,7 +66,7 @@ const Signup = () => {
         className=" font-sans flex flex-col justify-center items-center p-10 gap-10"
       >
         <div className="flex flex-col justify-center gap-3 items-center w-full">
-            <select name="role_dropdown" id="role_dropdown" onChange={role_change}>
+            <select name="role_dropdown" id="role_dropdown">
                 <option value="teacher">Teacher</option>
                 <option value="student">Student</option>
             </select>
