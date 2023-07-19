@@ -30,7 +30,7 @@ router.post(
         }
         try{
 
-            res.json({
+            await Student.create({
                 fullname: req.body.fullname,
                 email: req.body.email,
                 roll_no: req.body.roll_no,
@@ -38,16 +38,7 @@ router.post(
                 section: req.body.section,
                 address: req.body.address,
                 password: req.body.password
-            })
-            // await Student.create({
-                // fullname: req.body.fullname,
-                // email: req.body.email,
-                // roll_no: req.body.roll_no,
-                // standard: req.body.standard,
-                // section: req.body.section,
-                // address: req.body.address,
-                // password: req.body.password
-            // });
+            });
 
             res.json({success: true});
         }catch(error){

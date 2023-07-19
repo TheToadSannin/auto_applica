@@ -9,12 +9,12 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  roll_number: {
+  roll_no: {
     type: String,
     required: true,
   },
   standard: {
-    type: Number,
+    type: String,
     required: true,
   },
   section: {

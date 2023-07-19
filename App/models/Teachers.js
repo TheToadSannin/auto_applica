@@ -8,7 +8,7 @@ const TeacherSchema = new Schema({
     required: true,
   },
   standard: {
-    type: Number,
+    type: String,
     required: true,
   },
   section: {

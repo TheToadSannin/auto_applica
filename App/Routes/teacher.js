@@ -24,22 +24,15 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      res.json({
-        fullname: req.body.fullname,
-        email: req.body.email,
-        standard: req.body.standard,
-        section: req.body.section,
-        address: req.body.address,
-        password: req.body.password,
+
+      await Teacher.create({
+      fullname: req.body.fullname,
+      email: req.body.email,
+      standard: req.body.standard,
+      section: req.body.section,
+      address: req.body.address,
+      password: req.body.password
       });
-      // await Teacher.create({
-      // fullname: req.body.fullname,
-      // email: req.body.email,
-      // standard: req.body.standard,
-      // section: req.body.section,
-      // address: req.body.address,
-      // password: req.body.password
-      // });
 
       res.json({ success: true });
     } catch (error) {

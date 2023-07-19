@@ -8,7 +8,7 @@ const Signup = () => {
   const [credentials, setcredentials] = useState({
     fullname: "",
     email: "",
-    roll_no: " ",
+    roll_no: "",
     standard: "",
     section: "",
     address: "",
