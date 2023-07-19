@@ -13,7 +13,6 @@ const Signup = () => {
     section: "",
     address: "",
     password: "",
-    email: ""
   });
 
   const handleChange = (e) => {
@@ -21,67 +20,60 @@ const Signup = () => {
     setcredentials({ ...credentials, [name]: value });
   };
 
+  document.getElementsByTagName("title")[0].text = "Signup";
 
-
-  document.getElementsByTagName("title")[0].text="Signup"
-
-
-useEffect(() => {
+  useEffect(() => {
     const role = document.getElementById("role_dropdown");
-    role.onchange = function(){
+    role.onchange = function () {
       const roll_no = document.getElementById("student_div");
-      if(role.value === "teacher"){
-          roll_no.style.display = "none";
+      if (role.value === "teacher") {
+        roll_no.style.display = "none";
+      } else {
+        roll_no.style.display = "block";
       }
-      else{
-          roll_no.style.display = "block";
-      }
-  
-    }
-}, [])
+    };
+  }, []);
 
-const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const role = document.getElementById("role_dropdown");
-    if(role.value === "student"){
-        const response = await fetch("http://localhost:5000/api/createStudent",{
+    if (role.value === "student") {
+      const response = await fetch("http://localhost:5000/api/createStudent", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify({
-            fullname: credentials.fullname,
-            email: credentials.email,
-            roll_no: credentials.roll_no,
-            standard: credentials.standard,
-            section: credentials.section,
-            address: credentials.address,
-            password: credentials.passsword
+        body: JSON.stringify({
+          fullname: credentials.fullname,
+          email: credentials.email,
+          roll_no: credentials.roll_no,
+          standard: credentials.standard,
+          section: credentials.section,
+          address: credentials.address,
+          password: credentials.password,
         }),
-    });
+      });
 
-    // const json = await response.json();
+      // const json = await response.json();
+    } else {
+      const response = await fetch("http://localhost:5000/api/createTeacher", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname: credentials.fullname,
+          email: credentials.email,
+          roll_no: credentials.roll_no,
+          standard: credentials.standard,
+          section: credentials.section,
+          address: credentials.address,
+          password: credentials.password,
+        }),
+      });
     }
-    else{
-        const response = await fetch("http://localhost:5000/api/createTeacher",{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify({
-            fullname: credentials.fullname,
-            email: credentials.email,
-            roll_no: credentials.roll_no,
-            standard: credentials.standard,
-            section: credentials.section,
-            address: credentials.address,
-            password: credentials.passsword
-        }),
-    });
-}
-}
-
+  };
 
   return (
     <div className=" ">
@@ -90,11 +82,11 @@ const handleSubmit = async(e)=>{
         className=" font-sans flex flex-col justify-center items-center p-10 gap-10"
       >
         <div className="flex flex-col justify-center gap-3 items-center w-full">
-            <select name="role_dropdown" id="role_dropdown">
-                <option value="teacher">Teacher</option>
-                <option value="student">Student</option>
-            </select>
-        </div> 
+          <select name="role_dropdown" id="role_dropdown">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
         <div className="flex flex-col justify-center gap-3 items-center w-full">
           <label htmlFor="fullname" className="text-2xl uppercase">
             Full name
@@ -125,47 +117,44 @@ const handleSubmit = async(e)=>{
           />
         </div>
 
-        <div id="teacher_div">
-
-        </div>
-
+        <div id="teacher_div"></div>
 
         <div id="student_div" className="hidden">
-            <div className="flex flex-col justify-center gap-3 items-center w-full">
+          <div className="flex flex-col justify-center gap-3 items-center w-full">
             <label htmlFor="roll_no" className="text-2xl uppercase">
-                Roll Number
+              Roll Number
             </label>
             <input
-                className=" bg-gray-200 w-80 p-2 rounded-lg "
-                type="text"
-                name="roll_no"
-                id="roll_no"
-                placeholder="12341234"
-                value={credentials.roll_no}
-                onChange={handleChange}
+              className=" bg-gray-200 w-80 p-2 rounded-lg "
+              type="text"
+              name="roll_no"
+              id="roll_no"
+              placeholder="12341234"
+              value={credentials.roll_no}
+              onChange={handleChange}
             />
-            </div>
+          </div>
         </div>
         <div className="flex flex-col justify-center gap-3 items-center w-full">
-            <label htmlFor="standard" className="text-2xl uppercase">
-                Standard
-            </label>
-            <input
-                className=" bg-gray-200 w-80 p-2 rounded-lg "
-                type="text"
-                name="standard"
-                id="standard"
-                placeholder="1"
-                value={credentials.standard}
-                onChange={handleChange}
-            />
+          <label htmlFor="standard" className="text-2xl uppercase">
+            Standard
+          </label>
+          <input
+            className=" bg-gray-200 w-80 p-2 rounded-lg "
+            type="text"
+            name="standard"
+            id="standard"
+            placeholder="1"
+            value={credentials.standard}
+            onChange={handleChange}
+          />
         </div>
 
         <div className="flex flex-col justify-center gap-3 items-center w-full">
-        <label htmlFor="section" className="text-2xl uppercase">
+          <label htmlFor="section" className="text-2xl uppercase">
             section
-        </label>
-        <input
+          </label>
+          <input
             className=" bg-gray-200 w-80 p-2 rounded-lg "
             type="text"
             name="section"
@@ -173,9 +162,8 @@ const handleSubmit = async(e)=>{
             placeholder="A"
             value={credentials.section}
             onChange={handleChange}
-        />
+          />
         </div>
-
 
         <div className="flex flex-col justify-center gap-3 items-center w-full m-5">
           <label htmlFor="address" className="text-2xl uppercase">
@@ -207,7 +195,6 @@ const handleSubmit = async(e)=>{
           />
         </div>
 
-
         <div className="flex flex-col items-end w-80">
           <button
             type="submit"
@@ -226,6 +213,5 @@ const handleSubmit = async(e)=>{
     </div>
   );
 };
-
 
 export default Signup;
