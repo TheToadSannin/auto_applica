@@ -9,15 +9,7 @@ router.post(
   async (req, res) => {
     try {
       await Application.create({
-        student: {
-          fullname: "sdf;lk",
-          roll_no: "alsfk",
-          email: "aslfjasl@gmail.com",
-          standard: "a",
-          section: " a",
-          address: " asd;lfkjasd;lfjsd;lfjdslj",
-          password: "as;lfjslfjldfj",
-        },
+        student_id: studentData,
       });
     } catch (error) {
       res.json(error);
