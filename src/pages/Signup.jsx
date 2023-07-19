@@ -45,7 +45,6 @@ const Signup = () => {
 
 useEffect(() => {
     const role = document.getElementById("role_dropdown");
-    console.log(role);
     role.onchange = function(){
       const roll_no = document.getElementById("student_div");
       if(role.value === "teacher"){
