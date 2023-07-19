@@ -37,7 +37,7 @@ router.post(
                 standard: req.body.standard,
                 section: req.body.section,
                 address: req.body.address,
-                password: req.body.passsword
+                password: req.body.password
             })
             // await Student.create({
                 // fullname: req.body.fullname,
@@ -46,7 +46,7 @@ router.post(
                 // standard: req.body.standard,
                 // section: req.body.section,
                 // address: req.body.address,
-                // password: req.body.passsword
+                // password: req.body.password
             // });
 
             res.json({success: true});

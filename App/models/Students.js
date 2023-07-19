@@ -2,20 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const address = new Schema({
-  area: {
-    type: String, 
-    required: true
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  state: {
-    type: String,
-    required: true,
-  },
-});
+
 
 const StudentSchema = new Schema({
   fullname: {
@@ -48,7 +35,7 @@ const StudentSchema = new Schema({
     default: Date.now,
   },
   address: {
-    type: address,
+    type: String,
     required: true,
   },
 });
