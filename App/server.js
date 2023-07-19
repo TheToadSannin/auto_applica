@@ -14,6 +14,10 @@ app.get('/', function(req, res){
 
 
 mongoDB();
+
+app.use("/api", require('./Routes/student.js'));
+
+
 app.listen(5000, ()=>{
     console.log("server is running at port 5000");
 });

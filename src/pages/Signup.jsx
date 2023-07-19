@@ -7,8 +7,13 @@ const Signup = () => {
 
   const [credentials, setcredentials] = useState({
     fullname: "",
-    password: "",
     email: "",
+    roll_no: " ",
+    standard: "",
+    section: "",
+    address: "",
+    password: "",
+    email: ""
   });
 
   const handleChange = (e) => {
@@ -16,29 +21,7 @@ const Signup = () => {
     setcredentials({ ...credentials, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullname: credentials.fullname,
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
-    const json = await response.json();
-    console.log(json);
 
-    if (!json.success) {
-      alert("Enter valid credentials");
-    }
-    if (json.success) {
-      navigate("/login");
-    }
-  };
 
   document.getElementsByTagName("title")[0].text="Signup"
 
@@ -56,6 +39,48 @@ useEffect(() => {
   
     }
 }, [])
+
+const handleSubmit = async(e)=>{
+    e.preventDefault();
+
+    const role = document.getElementById("role_dropdown");
+    if(role.value === "student"){
+        const response = await fetch("http://localhost:5000/api/createStudent",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            fullname: credentials.fullname,
+            email: credentials.email,
+            roll_no: credentials.roll_no,
+            standard: credentials.standard,
+            section: credentials.section,
+            address: credentials.address,
+            password: credentials.passsword
+        }),
+    });
+
+    // const json = await response.json();
+    }
+    else{
+        const response = await fetch("http://localhost:5000/api/createTeacher",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            fullname: credentials.fullname,
+            email: credentials.email,
+            roll_no: credentials.roll_no,
+            standard: credentials.standard,
+            section: credentials.section,
+            address: credentials.address,
+            password: credentials.passsword
+        }),
+    });
+}
+}
 
 
   return (
@@ -81,7 +106,6 @@ useEffect(() => {
             name="fullname"
             id="fullname"
             value={credentials.fullname}
-            required
             onChange={handleChange}
           />
         </div>
@@ -97,7 +121,6 @@ useEffect(() => {
             id="email"
             placeholder="joemama@gmail.com"
             value={credentials.email}
-            required
             onChange={handleChange}
           />
         </div>
@@ -119,7 +142,6 @@ useEffect(() => {
                 id="roll_no"
                 placeholder="12341234"
                 value={credentials.roll_no}
-                required
                 onChange={handleChange}
             />
             </div>
@@ -135,7 +157,6 @@ useEffect(() => {
                 id="standard"
                 placeholder="1"
                 value={credentials.standard}
-                required
                 onChange={handleChange}
             />
         </div>
@@ -151,7 +172,6 @@ useEffect(() => {
             id="section"
             placeholder="A"
             value={credentials.section}
-            required
             onChange={handleChange}
         />
         </div>
@@ -168,7 +188,6 @@ useEffect(() => {
             name="address"
             id="address"
             value={credentials.address}
-            required
             onChange={handleChange}
           />
         </div>
@@ -184,7 +203,6 @@ useEffect(() => {
             name="password"
             id="password"
             value={credentials.password}
-            required
             onChange={handleChange}
           />
         </div>
