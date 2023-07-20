@@ -1,5 +1,6 @@
 const express = require("express");
 const Student = require("../models/Students");
+const mongoose = require("mongoose");
 
 const router = express.Router();
 
@@ -49,5 +50,7 @@ router.post(
 // /========================================================================================================================
 
 //login==========================================================================================================
+const student_collection = mongoose.model("students"); //import "students" collection
 
+//===============================================================================================================
 module.exports = router;
