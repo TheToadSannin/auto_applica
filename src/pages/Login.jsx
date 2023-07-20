@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from '../components/Header'
-
+import Header from "../components/Header";
 
 const Login = (props) => {
   let navigate = useNavigate();
@@ -16,38 +15,74 @@ const Login = (props) => {
     setcredentials({ ...credentials, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/loginuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
-    const json = await response.json();
-    console.log(json);
 
-    if (!json.success) {
-      alert("Enter valid credentials");
+    const role = document.getElementById("role_dropdown");
+    if (role.value === "Teacher") {
+      //role = Teacher
+      const response = await fetch("http://localhost:5000/api/loginTeacher", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
+
+      const json = await response.json();
+      console.log(json);
+      if (!json.success) {
+        alert("Enter valid credentials");
+      }
+      if (json.success) {
+        navigate("/");
+      }
     }
-    if (json.success) {
-      localStorage.setItem("authToken", json.authToken);
-      console.log(localStorage.getItem("authToken"));
-      navigate("/");
+    //role = Student
+    else {
+      const response = await fetch("http://localhost:5000/api/loginStudent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
+      const json = await response.json();
+      console.log(json);
+
+      if (!json.success) {
+        alert("Enter valid credentials");
+      }
+      if (json.success) {
+        localStorage.setItem("authToken", json.authToken);
+        console.log(localStorage.getItem("authToken"));
+        navigate("/");
+      }
     }
   };
-  document.getElementsByTagName("title")[0].text="Login"
+
   return (
     <div className=" ">
-        <Header/>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleLogin}
         className=" font-sans flex flex-col justify-center items-center p-10 gap-10"
       >
+        {/* dropdown menu =============================*/}
+        <div className="flex flex-col justify-center gap-3 items-center w-full">
+          <select name="role_dropdown" id="role_dropdown">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+
+        {/* ======================================== */}
+
         <div className="flex flex-col justify-center gap-3 items-center w-full">
           <label htmlFor="email" className="text-2xl uppercase">
             Username
@@ -59,6 +94,7 @@ const Login = (props) => {
             name="email"
             id="email"
             value={credentials.email}
+            onChange={handleChange}
           />
         </div>
         <div className="flex flex-col justify-center gap-3 items-center w-full m-5">

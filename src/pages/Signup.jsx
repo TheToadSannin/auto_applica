@@ -54,6 +54,14 @@ const Signup = () => {
           password: credentials.password,
         }),
       });
+      const json = await response.json();
+      console.log(json);
+      if (!json.success) {
+        alert("Enter valid credentials");
+      }
+      if (json.success) {
+        navigate("/login");
+      }
 
       // const json = await response.json();
     } else {
@@ -72,6 +80,15 @@ const Signup = () => {
           password: credentials.password,
         }),
       });
+      const json = await response.json();
+      console.log(json);
+
+      if (!json.success) {
+        alert("Enter valid credentials");
+      }
+      if (json.success) {
+        navigate("/login");
+      }
     }
   };
 
