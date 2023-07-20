@@ -20,7 +20,8 @@ const Login = (props) => {
     e.preventDefault();
 
     const role = document.getElementById("role_dropdown");
-    if (role.value === "Teacher") {
+    if (role.value === "teacher") {
+      console.log(role.value);
       //role = Teacher
       const response = await fetch("http://localhost:5000/api/loginTeacher", {
         method: "POST",
@@ -41,9 +42,7 @@ const Login = (props) => {
       if (json.success) {
         navigate("/");
       }
-    }
-    //role = Student
-    else {
+    } else {
       const response = await fetch("http://localhost:5000/api/loginStudent", {
         method: "POST",
         headers: {

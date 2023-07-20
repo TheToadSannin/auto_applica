@@ -75,7 +75,6 @@ router.post(
             "Email not registered! Try logging in with a registered email address",
         });
       }
-      await console.log(student_data.email);
       // an entry already is present with the requested email
       //if entry is present check password
       if (req.body.password !== student_data.password) {
