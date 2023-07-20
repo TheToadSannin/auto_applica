@@ -52,5 +52,45 @@ router.post(
 //login==========================================================================================================
 const student_collection = mongoose.model("students"); //import "students" collection
 
+router.post(
+  "/loginStudent",
+  [
+    body("email", "invalid email").isEmail(),
+    body("password", "invalid password"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    let student_email = req.body.email;
+
+    try {
+      const student_data = await student_collection.findOne({
+        email: student_email,
+      }); //fetch thd data with the entered email
+      if (student_data === undefined) {
+        return res.status(400).json({
+          errors:
+            "Email not registered! Try logging in with a registered email address",
+        });
+      }
+      await console.log(student_data.email);
+      // an entry already is present with the requested email
+      //if entry is present check password
+      if (req.body.password !== student_data.password) {
+        return res
+          .status(404)
+          .json({ errors: "Email and password does not match" });
+      }
+      //password is correct
+      return res.json({ success: true, student_data });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false });
+    }
+  }
+);
+
 //===============================================================================================================
 module.exports = router;

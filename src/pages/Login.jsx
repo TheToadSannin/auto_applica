@@ -9,6 +9,7 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+  let studentEmail;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,8 +61,6 @@ const Login = (props) => {
         alert("Enter valid credentials");
       }
       if (json.success) {
-        localStorage.setItem("authToken", json.authToken);
-        console.log(localStorage.getItem("authToken"));
         navigate("/");
       }
     }
@@ -85,7 +84,7 @@ const Login = (props) => {
 
         <div className="flex flex-col justify-center gap-3 items-center w-full">
           <label htmlFor="email" className="text-2xl uppercase">
-            Username
+            Email
           </label>
           <input
             className=" bg-gray-200 w-80 p-2 rounded-lg "
