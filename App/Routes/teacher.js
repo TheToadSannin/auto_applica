@@ -1,6 +1,8 @@
 const express = require("express");
 const Teacher = require("../models/Teachers");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const saltRound = 10;
 
 const router = express.Router();
 
@@ -32,7 +34,7 @@ router.post(
         standard: req.body.standard,
         section: req.body.section,
         address: req.body.address,
-        password: req.body.password,
+        password: await bcrypt.hash(req.body.password, saltRound).then(hash => {return hash}),
       });
 
       res.json({ success: true });
@@ -71,16 +73,20 @@ router.post(
             "Email not registered! Try logging in with a registered email address",
         });
       }
-      await console.log(teacher_data.email);
+
+
+      const hash = await bcrypt.hash(req.body.password, saltRound).then(hash=>{return hash});
+      const isValidPass = await bcrypt.compare(teacher_data.password, hash).then(res=>{res});
+
       // an entry already is present with the requested email
       //if entry is present check password
-      if (req.body.password !== teacher_data.password) {
+      if (isValidPass) {
         return res
           .status(404)
           .json({ errors: "Email and password does not match" });
       }
       //password is correct
-      return res.json({ success: true, teacher_data });
+      return res.json({ success: true, teacher_data.email });
     } catch (error) {
       console.log(error);
       res.json({ success: false });

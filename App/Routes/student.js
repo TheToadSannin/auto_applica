@@ -1,6 +1,8 @@
 const express = require("express");
 const Student = require("../models/Students");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const saltRound = 10;
 
 const router = express.Router();
 
@@ -29,6 +31,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
     try {
       await Student.create({
         fullname: req.body.fullname,
@@ -37,7 +40,7 @@ router.post(
         standard: req.body.standard,
         section: req.body.section,
         address: req.body.address,
-        password: req.body.password,
+        password: await bcrypt.hash(req.body.password, saltRound).then(hash => {return hash}),
       });
 
       res.json({ success: true });
@@ -69,7 +72,7 @@ router.post(
       const student_data = await student_collection.findOne({
         email: student_email,
       }); //fetch thd data with the entered email
-      if (student_data === undefined) {
+      if (student_data === null) {
         return res.status(400).json({
           errors:
             "Email not registered! Try logging in with a registered email address",
@@ -77,13 +80,16 @@ router.post(
       }
       // an entry already is present with the requested email
       //if entry is present check password
-      if (req.body.password !== student_data.password) {
+      const hash = await bcrypt.hash(req.body.password, saltRound).then(hash=>{return hash});
+      const isValidPass = await bcrypt.compare(student_data.password, hash).then(res=>{return res})
+      if (isValidPass) {
         return res
-          .status(404)
+          .status(400)
           .json({ errors: "Email and password does not match" });
       }
       //password is correct
-      return res.json({ success: true, student_data });
+      console.log({success: true, student_data.email})
+    //   return res.redirect("/student/dashboard");
     } catch (error) {
       console.log(error);
       res.json({ success: false });
