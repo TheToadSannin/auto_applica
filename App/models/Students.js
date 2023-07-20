@@ -37,6 +37,10 @@ const StudentSchema = new Schema(
       type: String,
       required: true,
     },
+
+    toke: {
+      type: String
+    }
   },
   {
     collection: "students",

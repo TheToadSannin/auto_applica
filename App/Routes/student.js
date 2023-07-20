@@ -64,35 +64,28 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.json({ msg: errors.array(), success: false });
     }
-    let student_email = req.body.email;
+
+    const {email, password} = req.body;
 
     try {
-      const student_data = await student_collection.findOne({
-        email: student_email,
-      }); //fetch thd data with the entered email
+      const student_data = await student_collection.findOne({ email: email }); //fetch thd data with the entered email
       if (student_data === null) {
-        return res.status(400).json({
-          errors:
-            "Email not registered! Try logging in with a registered email address",
-        });
+        return res.json({msg: "Email is Not Registered", success: false})
       }
-      // an entry already is present with the requested email
-      //if entry is present check password
-      const hash = await bcrypt.hash(req.body.password, saltRound).then(hash=>{return hash});
-      const isValidPass = await bcrypt.compare(student_data.password, hash).then(res=>{return res})
+
+      const isValidPass = await bcrypt.compare(password, student_data.password).then(res=>{return res})
+      console.log(isValidPass+" password")
+
       if (isValidPass) {
-        return res
-          .status(400)
-          .json({ errors: "Email and password does not match" });
+        return res.json({msg: "Login Successful", success: true})
       }
       //password is correct
-      console.log({success: true, student_data.email})
-    //   return res.redirect("/student/dashboard");
+      res.json({msg: "Invalid Username/Password", success: false})
     } catch (error) {
       console.log(error);
-      res.json({ success: false });
+      res.json({ msg: "Something went Wrong!", success: false });
     }
   }
 );

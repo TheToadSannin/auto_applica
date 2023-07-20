@@ -11,6 +11,7 @@ app.get("/", function (req, res) {
   res.send("hello");
 });
 
+
 mongoDB();
 
 app.use("/api", require("./Routes/student.js"));

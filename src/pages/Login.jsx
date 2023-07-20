@@ -37,7 +37,7 @@ const Login = (props) => {
       const json = await response.json();
       console.log(json);
       if (!json.success) {
-        alert("Enter valid credentials");
+        alert(json.errors);
       }
       if (json.success) {
         navigate("/");
@@ -57,7 +57,7 @@ const Login = (props) => {
       console.log(json);
 
       if (!json.success) {
-        alert("Enter valid credentials");
+        alert(json.success);
       }
       if (json.success) {
         navigate("/");

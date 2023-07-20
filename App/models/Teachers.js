@@ -33,6 +33,10 @@ const TeacherSchema = new Schema(
       type: String,
       required: true,
     },
+
+    token: {
+      type: String
+    }
   },
   {
     collection: "teachers",
