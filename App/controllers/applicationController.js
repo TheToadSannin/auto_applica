@@ -1,22 +1,21 @@
 const ApplicationTemplate = require("../models/ApplicationTemplates");
 
-
 const handleApplicationTemplate = async (req, res) => {
-    try{
-        await ApplicationTemplate.create({
-            type: "going_out_leave",
-            subject: "Leave for going out of station",
-            body: "<p>With due respect, it is stated that My whole family is going to visit {Place}. I am going to visit with her.</p>\
-            <p>Due to this, I will not be able to come to school for {time} days. For this, please give me three days’ leave.</p>\
-            <p>Yours Obediently,</p>"
-        })
+  try {
+    await ApplicationTemplate.create({
+      type: "migration_certificate",
+      subject: "application to Migration Certificate",
+      body: "<p> With due respect, I would like to state that I {name}, have been a student of this prestigious school. I have successfully passed {standard} from your school/college.</p> <br> \
+       <p>Now, I need my migration certificate from you to continue my studies and to be admitted to the new school/college.Therefore, my humble request in your kind is, to issue me a migration certificate as soon as possible.</p> <br> \
+       <p>I will be really grateful to you for this. <br>Thank you in advance. <br>\
+       Yours Sincerely,</p>",
+    });
 
+    res.send("Okkk");
+  } catch (error) {
+    res.send("Not okk");
+    console.log(error);
+  }
+};
 
-        res.send("Okkk");
-    }catch(error){
-        res.send("Not okk");
-        console.log(error)
-    }
-}
-
-module.exports = {handleApplicationTemplate}
+module.exports = { handleApplicationTemplate };
