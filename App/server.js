@@ -15,7 +15,6 @@ app.get("/", function (req, res) {
 mongoDB();
 
 
-app.use("/api", require("./routes/student.js"));
 app.use("/api", require("./routes/register.js"));
 app.use("/api", require("./routes/auth.js"));
 app.use("/api", require("./routes/application.js"));

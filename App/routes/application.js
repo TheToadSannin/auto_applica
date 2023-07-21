@@ -1,7 +1,14 @@
 const express = require("express");
 const Application = require("../models/Applications");
+const applicationController = require("../controllers/applicationController");
 
 const router = express.Router();
+
+
+
+router.post("/storeApplicationTemp", applicationController.handleApplicationTemplate);
+
+
 
 router.post(
   "/createApplication",
