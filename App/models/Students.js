@@ -38,7 +38,7 @@ const StudentSchema = new Schema(
       required: true,
     },
 
-    toke: {
+    token: {
       type: String
     }
   },

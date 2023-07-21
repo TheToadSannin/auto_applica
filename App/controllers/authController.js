@@ -2,6 +2,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const {validationResult} = require("express-validator");
+
+var jwt = require("jsonwebtoken")
+
+const PRIVATE_KEY = "uvJPJek0Bb0ZwaSoDJ7TqcwqVZJfSNqN";
 
 const student_collection = mongoose.model("students"); //import "students" collection
 const teacher_collection = mongoose.model("teachers"); //import "teachers" collection
@@ -25,7 +30,15 @@ const handleStudentLogin = async (req, res) => {
       console.log(isValidPass+" password")
 
       if (isValidPass) {
-        return res.json({msg: "Login Successful", success: true})
+
+        let token = jwt.sign({_id: student_data._id, email: student_data.email}, PRIVATE_KEY);
+        student_data.token = token;
+
+        await student_data.save({validModifiedOnly: true});
+        student_data.password = '';
+
+
+        return res.json({msg: "Login Successful", success: true, student: student_data});
       }
       //password is correct
       res.json({msg: "Invalid Username/Password", success: false})

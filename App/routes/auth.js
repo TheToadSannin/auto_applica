@@ -12,6 +12,7 @@ router.post("/loginStudent",
   authController.handleStudentLogin
 )
 
+
 router.post("/loginTeacher", 
   [
     body("email", "invalid email").isEmail(),
