@@ -10,6 +10,7 @@ const mongoDB = async () => {
     .catch((err) => {
       console.error(err);
     });
+    
 };
 
 module.exports = mongoDB;

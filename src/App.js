@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import CreateApplication from "./pages/students/CreateApplication";
 import Applications from "./pages/students/Applications";
+import Home from "./pages/Home";
+import Dashboard from "./pages/students/Dashboard";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
           element={<CreateApplication />}
         />
         <Route path="/student/storeApplication" element={<Applications />} />
+        <Route path="/" element={<Home/>} />
+
+        <Route path="/student/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

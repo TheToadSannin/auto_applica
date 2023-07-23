@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
+
 const Login = (props) => {
   let navigate = useNavigate();
 
@@ -34,7 +35,10 @@ const Login = (props) => {
       });
 
       const json = await response.json();
+
       console.log(json);
+
+
       if (!json.success) {
         alert(json.errors);
       }
@@ -53,13 +57,13 @@ const Login = (props) => {
         }),
       });
       const json = await response.json();
-      console.log(json);
 
       if (!json.success) {
         alert(json.success);
       }
       if (json.success) {
-        navigate("/");
+        localStorage.setItem("token", "Bearer "+json.token);
+        navigate("/student/dashboard");
       }
     }
   };

@@ -12,6 +12,12 @@ app.get("/", function (req, res) {
 });
 
 
+app.post("/someData", (req, res)=>{
+  console.log(req.headers.authorization);
+  res.send("hello");
+  
+});
+
 mongoDB();
 
 

@@ -38,7 +38,7 @@ const handleStudentLogin = async (req, res) => {
         student_data.password = '';
 
 
-        return res.json({msg: "Login Successful", success: true, student: student_data});
+        return res.json({msg: "Login Successful", success: true, student: student_data, token: token});
       }
       //password is correct
       res.json({msg: "Invalid Username/Password", success: false})
@@ -86,3 +86,4 @@ const handleTeacherLogin = async (req, res) => {
   }
 
   module.exports = {handleStudentLogin, handleTeacherLogin};
+
