@@ -10,7 +10,6 @@ const getStudent = async () => {
   });
   
     const json = await response.json();
-    console.log(json);
     return json.student;
 };
 
@@ -21,10 +20,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     getStudent().then((response)=>{
         const currentStudent = response;
-        setStudent(currentStudent);
+        setStudent(currentStudent);  
     })
   }, []);
-
 
   return (
     <AuthContext.Provider value={ {student} }>{children}</AuthContext.Provider>

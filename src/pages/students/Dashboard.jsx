@@ -6,12 +6,12 @@ import { AuthContext } from '../../providers/AuthContext';
 const Dashboard = () => {
   let navigate = useNavigate();
   const student = useContext(AuthContext);
-  if(!student){
+  if(!student.student){
     return navigate("/login");
   }
   return (
     <div>
-       {/* {console.log(student, " from dashboard")} */}
+       {console.log(student.student.fullname)}
     </div>
 
   )
