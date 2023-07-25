@@ -1,6 +1,6 @@
-import {useState, useEffect, createContext} from 'react';
+import {useState, useEffect} from 'react';
 
-const AuthContext = createContext();
+import AuthContext from './AuthContext';
 
 const getStudent = async(e)=>{
     e.preventDefault();

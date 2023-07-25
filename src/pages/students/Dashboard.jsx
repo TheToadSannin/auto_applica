@@ -1,26 +1,18 @@
 import React from 'react'
+import useAuthContext from "../../providers/useAuthContext";
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-
-    const isAuth = async (e)=>{
-        e.preventDefault();
-
-        const response = await fetch("http://localhost:5000/api/isAuth", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "x-access-token": localStorage.getItem("token")
-            }
-        });
-        const json = await response.json();
-        console.log(json.student);
-    }
-
+  let navigate = useNavigate();
+  const { student } = useAuthContext();
+  if(!student){
+    return navigate("/login");
+  }
 
   return (
-    <div><form onSubmit={isAuth}>
-        <button type="submit">Click to Auth</button>
-        </form></div>
+    <div>
+        {console.log(student)}
+    </div>
 
   )
 }
