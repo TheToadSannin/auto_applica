@@ -4,7 +4,8 @@ import './input.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthProvider from './providers/AuthProvider';
+import { AuthContext } from './providers/AuthContext';
+import student, { AuthProvider } from './providers/AuthProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

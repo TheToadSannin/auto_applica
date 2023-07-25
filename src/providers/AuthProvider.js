@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-
-import AuthContext from "./AuthContext";
-
-const getStudent = async (e) => {
+import { AuthContext } from "./AuthContext";
+const getStudent = async () => {
   const response = await fetch("http://localhost:5000/api/isAuth", {
     method: "GET",
     headers: {
@@ -10,18 +8,26 @@ const getStudent = async (e) => {
       "x-access-token": localStorage.getItem("token"),
     },
   });
-  return await response.json();
+  
+    const json = await response.json();
+    console.log(json);
+    return json.student;
 };
+
+
 
 export const AuthProvider = ({ children }) => {
   const [student, setStudent] = useState(null);
   useEffect(() => {
-    const currentStudent = getStudent();
-    setStudent(currentStudent);
+    getStudent().then((response)=>{
+        const currentStudent = response;
+        setStudent(currentStudent);
+    })
   }, []);
 
+
   return (
-    <AuthContext.Provider value={{ student }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={ {student} }>{children}</AuthContext.Provider>
   );
 };
 export default AuthProvider;
