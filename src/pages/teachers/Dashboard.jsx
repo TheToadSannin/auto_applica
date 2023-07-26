@@ -11,7 +11,7 @@ const Dashboard = () => {
   }
         
   return (
-    <div>Dashboard</div>
+    <div>{userData.userData.fullname}</div>
   )
 }
 

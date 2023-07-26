@@ -18,12 +18,22 @@ router.post(
     try {
       
       await Application.create({
+        title: "Application for Leave",
         student_id: '64b803711cf1edab206d2795'
       })
+
+      res.json({success:true});
 
     } catch (error) {
       res.json(error);
     }
   }
 );
+
+
+router.get("/getApplications", async(req, res)=>{
+    try{
+      const applications = await Application.find
+    }
+})
 module.exports = router;
