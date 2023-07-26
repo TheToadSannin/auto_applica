@@ -12,6 +12,8 @@ const student_collection = mongoose.model("students"); //import "students" colle
 const teacher_collection = mongoose.model("teachers"); //import "teachers" collection
 
 
+
+
 const handleStudentLogin = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -73,7 +75,14 @@ const handleTeacherLogin = async (req, res) => {
       // an entry already is present with the requested email
       //if entry is present check password
       if (isValidPass) {
-        return res.json({msg: "Login Successful", success: true});
+
+        let token = jwt.sign({_id: teacher_data._id, email: teacher_data.email}, PRIVATE_KEY);
+        teacher_data.token = token;
+
+        await teacher_data.save({validModifiedOnly: true});
+        teacher_data.password ='';
+
+        return res.json({msg: "Login Successful", success: true, teacher: teacher_data, token: token});
       }
       //password is correct
       res.json({msg: "Invalid Username/Password", success: false});

@@ -1,10 +1,11 @@
 import AuthContext from "./AuthContext";
+import { useContext } from "react";
 
 const useAuthContext = () =>{
-    const student = useContext(AuthContext);
-    if(student === undefined){
+    const userData = useContext(AuthContext);
+    if(userData === undefined){
         throw new Error("useAuthContext can only be used inside AuthProvider");
     }
-    return student;
+    return userData;
 }
-
+export default useAuthContext;

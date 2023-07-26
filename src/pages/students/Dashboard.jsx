@@ -1,20 +1,20 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../providers/AuthContext';
+import useAuthContext from '../../providers/useAuthContext'
 
 const Dashboard = () => {
   let navigate = useNavigate();
-  const student = useContext(AuthContext);
-  if(!student.student){
-    return navigate("/login");
-  }
+  const userData = useAuthContext();
+  if((!userData.userData ) || userData.role != "student"){
+      return navigate("/login");
+    }
+    
   return (
     <div>
-       {console.log(student.student.fullname)}
+       {userData.userData.fullname}
     </div>
 
   )
 }
 
-export default Dashboard
+export default Dashboard;

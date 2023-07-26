@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -43,7 +44,9 @@ const Login = (props) => {
         alert(json.errors);
       }
       if (json.success) {
-        navigate("/");
+        localStorage.setItem("token", "BearerTeacher "+json.token);
+        navigate("/teacher/dashboard"); 
+        navigate(0);
       }
     } else {
       const response = await fetch("http://localhost:5000/api/loginStudent", {
@@ -62,8 +65,10 @@ const Login = (props) => {
         alert(json.success);
       }
       if (json.success) {
-        localStorage.setItem("token", "Bearer "+json.token);
+        localStorage.setItem("token", "BearerStudent "+json.token);
         navigate("/student/dashboard");
+        navigate(0);
+        
       }
     }
   };

@@ -23,8 +23,8 @@ router.post("/loginTeacher",
   authController.handleTeacherLogin
 );
 
-router.get("/isAuth", authMiddlerWare.student_mid_auth, (req, res)=>{
-   res.json({student:req.student});
+router.get("/isAuth", authMiddlerWare.mid_auth, (req, res)=>{
+   res.json({userData:req.userData, role: req.role});
 });
 
 
