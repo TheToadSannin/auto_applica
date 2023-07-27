@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
 
 import AuthContext from './AuthContext';
 
@@ -20,7 +19,7 @@ export const AuthProvider = ({children}) =>{
             setUserData(json.userData);
             setRole(json.role);
         }        
-        // setStudent(currentStudent);
+        
         getUserData();
     }, []);
     return (<AuthContext.Provider value={{userData, role}}>{children}</AuthContext.Provider>)

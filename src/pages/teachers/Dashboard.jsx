@@ -1,17 +1,22 @@
 import React from 'react'
-import useAuthContext from '../../providers/useAuthContext';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
 
-  let navigate = useNavigate();
-  const userData = useAuthContext();
-  if((!userData.userData ) || userData.role != "teacher"){
-        return navigate("/login");
-  }
+ const [students, setStudents] = useState();
+
+ useEffect(()=>{
+    const getApplication = async ()=>{
+        const response = await fetch()
+    }
+ }, []);
         
   return (
-    <div>{userData.userData.fullname}</div>
+    <div>
+
+    </div>
   )
 }
 

@@ -8,6 +8,9 @@ const ApplicationSchema = new Schema({
     },
     student_id: {
         type: Schema.Types.ObjectId
+    },
+    isAccepted:{
+        type: Boolean
     }
 });
 module.exports = mongoose.model("application", ApplicationSchema);

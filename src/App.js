@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import  StudentDashboard from "./pages/students/Dashboard";
 import TeacherDashboard from "./pages/teachers/Dashboard";
 
+
 function App() {
   return (
     <BrowserRouter>

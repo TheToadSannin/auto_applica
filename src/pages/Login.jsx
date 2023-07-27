@@ -46,7 +46,6 @@ const Login = (props) => {
       if (json.success) {
         localStorage.setItem("token", "BearerTeacher "+json.token);
         navigate("/teacher/dashboard"); 
-        navigate(0);
       }
     } else {
       const response = await fetch("http://localhost:5000/api/loginStudent", {
@@ -67,7 +66,6 @@ const Login = (props) => {
       if (json.success) {
         localStorage.setItem("token", "BearerStudent "+json.token);
         navigate("/student/dashboard");
-        navigate(0);
         
       }
     }
