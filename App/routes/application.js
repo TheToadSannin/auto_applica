@@ -1,6 +1,7 @@
 const express = require("express");
 const Application = require("../models/Applications");
 const applicationController = require("../controllers/applicationController");
+const Student = require("../models/Students");
 
 const router = express.Router();
 
@@ -18,8 +19,8 @@ router.post(
     try {
       
       await Application.create({
-        title: "Application for Holiday",
-        student_id: '64ba89590edc22b22f7e705c',
+        title: "Application for Leave",
+        student_id: '64b969f616bef27f5d5e67a3',
         isAccepted: false
       })
 
@@ -42,5 +43,41 @@ router.get("/getApplications", async(req, res)=>{
     catch(errors){
       console.log(errors);
     }
+});
+
+router.get("/getApplicationWithStudent", async(req, res)=>{
+  try{
+      const standard = req.query.standard;
+      const applications = await Application.aggregate([
+          {
+              $lookup:{
+                  from: "students",
+                  localField: "student_id",
+                  foreignField: "_id",
+                  as: "student"
+              }
+          },
+          { $unwind : "$student"},
+          {
+              $match:{
+                  "student.standard": standard
+              }
+          }
+      ])
+
+      applications.map((application)=>{
+          delete application.student.password;
+          delete application.student.token;
+      });
+
+      res.json(applications);
+  }catch(errors){
+      console.log(errors);
+  }
 })
+
+
+
+
+
 module.exports = router;
