@@ -5,7 +5,7 @@ const Student = require("../../models/Students");
 const Teacher = require("../../models/Teachers");
 
 const mid_auth = async (req, res, next) =>{
-
+    
     const role = req.headers["x-access-token"].split(" ")[0];
 
     if(role === "BearerStudent"){

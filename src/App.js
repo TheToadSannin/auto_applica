@@ -8,10 +8,13 @@ import Applications from "./pages/students/Applications";
 import Home from "./pages/Home";
 import  StudentDashboard from "./pages/students/Dashboard";
 import TeacherDashboard from "./pages/teachers/Dashboard";
+import PageNotFound from "./pages/PageNotFound";
+import { AuthProvider } from "./providers/AuthContext";
 
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -22,12 +25,17 @@ function App() {
         />
         <Route path="/student/storeApplication" element={<Applications />} />
         <Route path="/" element={<Home/>} />
+        
+          <Route path="/student/dashboard" element={<StudentDashboard />} />
+          <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
 
-        <Route path="/student/dashboard" element={<StudentDashboard />} />
-        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+
+
+        <Route path="*" element={<PageNotFound/>} />
         
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

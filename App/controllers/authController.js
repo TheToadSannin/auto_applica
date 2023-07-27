@@ -40,7 +40,7 @@ const handleStudentLogin = async (req, res) => {
         student_data.password = '';
 
 
-        return res.json({msg: "Login Successful", success: true, student: student_data, token: token});
+        return res.json({msg: "Login Successful", success: true, user: student_data, token: token});
       }
       //password is correct
       res.json({msg: "Invalid Username/Password", success: false})
@@ -82,7 +82,7 @@ const handleTeacherLogin = async (req, res) => {
         await teacher_data.save({validModifiedOnly: true});
         teacher_data.password ='';
 
-        return res.json({msg: "Login Successful", success: true, teacher: teacher_data, token: token});
+        return res.json({msg: "Login Successful", success: true, user: teacher_data, token: token});
       }
       //password is correct
       res.json({msg: "Invalid Username/Password", success: false});

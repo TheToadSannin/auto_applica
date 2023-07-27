@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import AuthContext from "../providers/AuthContext";
 
 
 const Login = (props) => {
   let navigate = useNavigate();
+  const {user, setUser, role, setRole} = useContext(AuthContext);
 
   const [credentials, setcredentials] = useState({
     email: "",
@@ -45,6 +47,8 @@ const Login = (props) => {
       }
       if (json.success) {
         localStorage.setItem("token", "BearerTeacher "+json.token);
+        setUser(json.user);
+        setRole("teacher");
         navigate("/teacher/dashboard"); 
       }
     } else {
@@ -65,6 +69,8 @@ const Login = (props) => {
       }
       if (json.success) {
         localStorage.setItem("token", "BearerStudent "+json.token);
+        setUser(json.user);
+        setRole("student");
         navigate("/student/dashboard");
         
       }
