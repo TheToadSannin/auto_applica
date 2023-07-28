@@ -11,6 +11,7 @@ import  StudentDashboard from "./pages/students/Dashboard";
 import TeacherDashboard from "./pages/teachers/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import { AuthProvider } from "./providers/AuthContext";
+import Footer from "./components/Footer";
 
 
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="*" element={<PageNotFound/>} />
         
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
