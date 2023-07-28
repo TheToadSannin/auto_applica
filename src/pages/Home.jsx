@@ -19,11 +19,9 @@ const Home = () => {
 
   return (
     <div>
-        <Header/>
-            <form onSubmit={handleSubmit}>
-              <button type="submit">Click Here</button>
-            </form>
-        <Footer/>
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Click Here</button>
+        </form>
     </div>
   )
 }
