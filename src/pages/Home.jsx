@@ -18,11 +18,10 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <main>
         <form onSubmit={handleSubmit}>
-          <button type="submit">Click Here</button>
         </form>
-    </div>
+    </main>
   )
 }
 
