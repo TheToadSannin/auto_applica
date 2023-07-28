@@ -7,7 +7,7 @@ import AuthContext from "../providers/AuthContext";
 
 const Login = (props) => {
   let navigate = useNavigate();
-  const {user, setUser, role, setRole} = useContext(AuthContext);
+  const {user, setUser, role, setRole, authenticated, setAuthenticated} = useContext(AuthContext);
 
   const [credentials, setcredentials] = useState({
     email: "",
@@ -24,8 +24,6 @@ const Login = (props) => {
 
     const role = document.getElementById("role_dropdown");
     if (role.value === "teacher") {
-      console.log(role.value);
-      //role = Teacher
       const response = await fetch("http://localhost:5000/api/loginTeacher", {
         method: "POST",
         headers: {
@@ -49,6 +47,7 @@ const Login = (props) => {
         localStorage.setItem("token", "BearerTeacher "+json.token);
         setUser(json.user);
         setRole("teacher");
+        setAuthenticated(true);
         navigate("/teacher/dashboard"); 
       }
     } else {
@@ -71,6 +70,7 @@ const Login = (props) => {
         localStorage.setItem("token", "BearerStudent "+json.token);
         setUser(json.user);
         setRole("student");
+        setAuthenticated(true);
         navigate("/student/dashboard");
         
       }

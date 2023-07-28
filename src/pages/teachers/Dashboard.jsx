@@ -8,8 +8,10 @@ import AuthContext from '../../providers/AuthContext';
 const Dashboard = () => {
 
  const [applications, setApplications] = useState();
- const {user, setUser, role, setRole} = useContext(AuthContext);
+ const {user, setUser, role, setRole, authenticated, setAuthenticated} = useContext(AuthContext);
+
  const navigate = useNavigate();
+
  useEffect(()=>{
     const getApplication = async ()=>{
         const standard = "10000000";
@@ -27,14 +29,16 @@ const Dashboard = () => {
     getApplication();
 
  }, []);
-//  console.log(user);
 
 
-//  if(!user && role != "teacher"){
-//     console.log(user);
-//     console.log(role);
-//     navigate("/login");
-//  }
+
+    useEffect(()=>{
+        if (authenticated == false) {
+            console.log(authenticated);
+            return navigate("/login");
+        }
+    }, [authenticated])
+    
 
         
   return (
@@ -45,6 +49,9 @@ const Dashboard = () => {
                     return <p key={index}>{application.title + " by "+application.student.fullname}</p>
                 })
             ):("No Applications")
+        }
+        {
+            // console.log(user.name)
         }
     </div>
   )

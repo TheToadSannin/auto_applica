@@ -3,8 +3,9 @@ import { createContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({children}) =>{
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
     const [role, setRole] = useState();
+    const [authenticated, setAuthenticated] = useState(false);
 
 
     useEffect(()=>{
@@ -18,20 +19,26 @@ export const AuthProvider = ({children}) =>{
                 }
             });
             const json = await response.json();
-            // setUser(json.userData);
-            // setRole(json.role);
+            if (json.userData != null) {
+                setUser(json.userData);
+                setRole(json.role);
+                setAuthenticated(true);
+            }
            
         }        
         
-        // getUserData();
-        const us = {name:"lol"};
-        setUser(us);
+        getUserData();
     }, []);
 
 
     return (
         <AuthContext.Provider value={{
-            
+            user,
+            setUser,
+            role,
+            setRole,
+            authenticated,
+            setAuthenticated
         }}>
             {children}
         </AuthContext.Provider>

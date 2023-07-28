@@ -14,7 +14,6 @@ import { AuthProvider } from "./providers/AuthContext";
 
 function App() {
   return (
-    <AuthProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -35,7 +34,6 @@ function App() {
         
       </Routes>
     </BrowserRouter>
-    </AuthProvider>
   );
 }
 
