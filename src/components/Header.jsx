@@ -10,10 +10,12 @@ const Header = () => {
 
     if(isShow === "false"){
       menuDrawer.style.display = "flex";
+      menuDrawer.classList.add("nav-drawer-animaition");
       menuDrawer.setAttribute("isshow", "true");
     }
     else{
       menuDrawer.style.display = "none";
+      menuDrawer.classList.remove("nav-drawer-animaition");
       menuDrawer.setAttribute("isshow", "false");
     }
     
