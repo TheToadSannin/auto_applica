@@ -8,7 +8,7 @@ import AuthContext from '../../providers/AuthContext';
 const Dashboard = () => {
 
  const [applications, setApplications] = useState();
- const {user, setUser, role, setRole, authenticated, setAuthenticated} = useContext(AuthContext);
+//  const {user, setUser, role, setRole, authenticated, setAuthenticated} = useContext(AuthContext);
 
  const navigate = useNavigate();
 
@@ -32,12 +32,12 @@ const Dashboard = () => {
 
 
 
-    useEffect(()=>{
-        if (authenticated == false) {
-            console.log(authenticated);
-            return navigate("/login");
-        }
-    }, [authenticated])
+    // useEffect(()=>{
+    //     if (authenticated == false) {
+    //         console.log(authenticated);
+    //         return navigate("/login");
+    //     }
+    // }, [authenticated])
     
 
         
