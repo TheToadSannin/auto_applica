@@ -5,7 +5,19 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 const Header = () => {
 
   const handleNav = ()=>{
-    console.log("nav");
+    const menuDrawer = document.querySelector("header .nav-drawer");
+    const isShow = menuDrawer.getAttribute("isshow");
+
+    if(isShow === "false"){
+      menuDrawer.style.display = "flex";
+      menuDrawer.setAttribute("isshow", "true");
+    }
+    else{
+      menuDrawer.style.display = "none";
+      menuDrawer.setAttribute("isshow", "false");
+    }
+    
+    console.log(menuDrawer.getAttribute("isshow"));
   }
 
   return (
@@ -18,7 +30,7 @@ const Header = () => {
             viewBox={"0 0 500 300"}
           />
         </span>
-        <div className="nav-drawer">
+        <div className="nav-drawer" isshow="false">
           <ul className="pages">
             <li>
               <Link to="/">Home </Link>
