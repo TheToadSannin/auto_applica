@@ -1,6 +1,6 @@
 /* CSS for Navbar*/
-body{
-  background-color: #262A2E;
+body {
+  background-color: #262a2e;
 }
 header {
   display: flex;
@@ -18,15 +18,15 @@ header nav {
   background-color: #161819;
   border-radius: 20px;
   color: white;
-  box-shadow: 0 0 10px rgba(11,11,11,0.5);
+  box-shadow: 0 0 10px rgba(11, 11, 11, 0.5);
 }
-header nav div{
+header nav div {
   display: flex;
   width: 100%;
   align-items: center;
 }
 
-header nav .menu-icon{
+header nav .menu-icon {
   color: white;
   display: none;
 }
@@ -45,11 +45,11 @@ header nav .actions {
   margin-right: 3vw;
 }
 
-header nav .actions li:last-child{
+header nav .actions li:last-child {
   display: none;
 }
 
-header nav .actions li::after{
+header nav .actions li::after {
   background-color: black;
 }
 
@@ -62,8 +62,8 @@ header nav ul li {
   position: relative;
 }
 
-header nav ul li::after{
-  content: '';
+header nav ul li::after {
+  content: "";
   position: absolute;
   width: 0;
   height: 2px;
@@ -92,8 +92,8 @@ footer {
   font-size: 24px;
 }
 
-footer button{
-  background-color:white;
+footer button {
+  background-color: white;
   margin: 1em 0 0 0;
   color: black;
   letter-spacing: 1px;
@@ -101,8 +101,8 @@ footer button{
   height: 2em;
   position: relative;
 }
-footer button::after{
-  content: '';
+footer button::after {
+  content: "";
   position: absolute;
   width: 0;
   height: 100%;
@@ -115,8 +115,7 @@ footer button:hover:after {
   width: 100%;
 }
 
-
-footer div ul{
+footer div ul {
   padding: 2em 0 0 0;
   text-align: left;
   font-size: 16px;
@@ -124,51 +123,74 @@ footer div ul{
   line-height: 2em;
 }
 
-footer div ul li:hover{
+footer div ul li:hover {
   transition: all ease 0.5s;
   cursor: pointer;
   color: white;
 }
-footer .footer{
+footer .footer {
   text-transform: capitalize;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr ;
-  
+  grid-template-columns: 2fr 1fr 1fr;
 }
 
-footer .footer div{
+footer .footer div {
   margin-left: 5em;
   padding: 4em 0 0 0;
 }
 
-footer .footer p{
+footer .footer p {
   padding: 1em 0 0 0;
   font-size: 0.8em;
 }
 
-
-main{
+main {
   height: 100vh;
 }
 
 @media (max-width: 900px) {
-  header nav .nav-drawer{
+  header nav {
+    height: 70vh;
+  }
+  header nav .nav-drawer {
     /* display: none; */
+
     position: absolute;
+    flex-direction: column;
   }
 
-  header nav .menu-icon{
+  header nav .menu-icon {
     display: block;
     text-align: end;
     padding: 0 2em 0 0;
   }
-  footer .footer div{
+  footer .footer div {
     margin-left: 2em;
     padding: 4em 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-drawer .actions {
+    flex-direction: column;
+    margin: 3vh 0vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+  .nav-drawer .actions li {
+    margin: 2vh 0vh;
+  }
+  .nav-drawer .pages {
+    flex-direction: column;
+    margin: 3vh 0vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+  .nav-drawer .pages li {
+    margin: 2vh 0vh;
   }
 }
 @media (max-width: 768px) {
-  footer .footer{
+  footer .footer {
     display: flex;
     flex-direction: column;
   }
