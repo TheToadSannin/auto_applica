@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <span>
+        <span style={{opacity:"0"}}>
           <Logo
             height={120 + "px"}
             width={120 + "px"}
@@ -46,7 +46,7 @@ const Header = () => {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/singup">Singup</Link>
+              <Link to="/signup">Sign-Up</Link>
             </li>
             <li>
               <div className="userIcon">L</div>

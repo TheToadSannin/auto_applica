@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,9 +13,9 @@ const Footer = () => {
         <div>
           <h1>Socials</h1>
           <ul>
-            <li><i className="fa-brands fa-twitter"></i> &nbsp; Twitter</li>
-            <li><i className="fa-brands fa-discord"></i> &nbsp; Discord</li>
-            <li><i className="fa-brands fa-github"></i> &nbsp; GitHub</li>
+            <li><Link to="https://twitter.com"><i className="fa-brands fa-twitter"></i> &nbsp; Twitter</Link></li>
+            <li><Link to="https://discord.com"><i className="fa-brands fa-discord"></i> &nbsp; Discord</Link></li>
+            <li><Link to="https://github.com"><i className="fa-brands fa-github"></i> &nbsp; GitHub</Link></li>
           </ul>
         </div>
         <div>
