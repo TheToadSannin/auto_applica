@@ -1,6 +1,6 @@
 /* CSS for Navbar*/
 
-:root{
+:root {
   --nav-bar-color: #161819;
 }
 body {
@@ -30,15 +30,15 @@ header nav {
 }
 
 @keyframes nav-bar-animation {
-  0%{
+  0% {
     height: 0;
   }
-  100%{
+  100% {
     height: calc(auto);
   }
 }
 
-.nav-drawer-animaition{
+.nav-drawer-animaition {
   animation-name: nav-bar-animation;
   animation-timing-function: linear;
   animation-duration: 0.05s;
@@ -113,7 +113,8 @@ header nav .userIcon {
 
 footer {
   background-color: var(--nav-bar-color);
-  width: 100vw;
+  width: auto;
+  overflow: hidden;
   color: white;
   font-size: 24px;
 }
@@ -170,7 +171,6 @@ footer .footer p {
   font-size: 0.8em;
 }
 
-
 @media (max-width: 900px) {
   header nav .nav-drawer {
     display: none;
@@ -183,17 +183,17 @@ footer .footer p {
     padding: 1em;
     overflow: hidden;
   }
-  
-
 
   header .nav-drawer .pages {
     flex-direction: column;
     margin: 0;
   }
-  header ,.nav-drawer .pages li{
+  header,
+  .nav-drawer .pages li {
     padding: 0.7em 1em;
   }
-  header ,.nav-drawer .actions li{
+  header,
+  .nav-drawer .actions li {
     padding: 0.7em 1em;
   }
   header .nav-drawer .actions {
@@ -207,7 +207,7 @@ footer .footer p {
     padding: 0 2em 0 0;
   }
 
-  header nav .menu-icon i{
+  header nav .menu-icon i {
     cursor: pointer;
   }
   footer .footer div {
@@ -216,22 +216,22 @@ footer .footer p {
     display: flex;
     flex-direction: column;
   }
-
-
 }
 
-main{
+/* HOME PAGE  */
+.homePage {
   padding: 2em;
+
   margin-top: 2em;
   display: flex;
   justify-content: center;
-  font-family: 'Tektur', cursive;
+  font-family: "Tektur", cursive;
 }
-main div{
+.homePage div {
   width: 80vw;
   padding: 2em;
 }
-main div h1{
+.homePage div h1 {
   margin-top: 2em;
   text-align: center;
   font-size: 4em;
@@ -240,57 +240,59 @@ main div h1{
   font-weight: 900;
 }
 
-main div h1:first-child{
+.homePage div h1:first-child {
   margin-top: 0;
 }
 
-
-main div div{
+.homePage div div {
   display: flex;
   align-items: center;
 }
 
-main div div p{
+.homePage div div p {
   /* text-shadow: 2px 2px 0px #ef233c, -2px -2px 0px cyan; */
   font-size: 3em;
   width: 70%;
   /* color: white; */
 }
 
-main div div img{
+.homePage div div img {
   padding: 2em;
   margin-right: 1em;
   border-radius: 5px;
 }
-main div span{
+.homePage div span {
   color: #ef233c;
 }
 
 @media (max-width: 900px) {
-  main div{
+  .homePage div {
+    margin: 0;
     width: 90vw;
     padding: 0;
   }
-  main div h1{
+  .homePage div h1 {
     font-size: 3em;
   }
-  main div div{
+  .homePage div div {
     flex-direction: column;
     padding: 0;
     font-size: 12px;
+  }
+  .homePage div div img {
+    padding: 0;
   }
 }
 
 /* For Device going back to 900px+  */
 @media (min-width: 900px) {
-  header .nav-drawer{
+  header .nav-drawer {
     display: flex !important;
   }
-  header .nav-drawer{
+  header .nav-drawer {
     height: auto !important;
   }
 }
-
 
 @media (max-width: 768px) {
   footer .footer {
@@ -298,10 +300,9 @@ main div span{
     flex-direction: column;
   }
 }
+/* ERROR: PAGE NOT FOUND PAGE */
 
-
-
-.error404page{
+.error404page {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -309,15 +310,116 @@ main div span{
   align-items: center;
   font-weight: 100 !important;
 }
-.error404page p{
+.error404page p {
   text-align: center;
   font-size: calc(10vw + 15px);
 }
-.error404page span{
+.error404page span {
   color: red;
 }
 @media (min-width: 1140px) {
-  .error404page p{
+  .error404page p {
     font-size: calc(5vw + 10px);
+  }
+}
+
+/* LOGIN PAGE  */
+
+.loginPage {
+  padding: 3em;
+}
+
+.loginPage div {
+  width: 60%;
+  padding: 2em;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+}
+.loginPage div form {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPage .creds {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1em;
+  padding: 2em 0em;
+}
+.loginPage .creds input {
+  padding: 1em;
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  margin-top: 1em;
+}
+
+.loginPage .actionBtn {
+  padding: 0;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPage .actionBtn .forgotPassword {
+  text-align: end;
+}
+
+.loginPage .actionBtn .newUser {
+  text-align: end;
+}
+
+.loginPage .actionBtn button {
+  font-size: 18px;
+  margin: 1em 0;
+  background-color: var(--nav-bar-color);
+  border-radius: 10px;
+  color: white;
+  padding: 0.7em;
+  text-decoration: underline;
+  transition: all ease-in-out 0.4s;
+}
+
+.loginPage .actionBtn button:hover {
+  background-color: #414547;
+}
+
+.loginPage .role_dropdown {
+  width: full;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0em;
+}
+
+.loginPage .role_dropdown select {
+  transition: all ease-in-out 0.4s;
+  text-align: center;
+  width: 100%;
+  background-color: var(--nav-bar-color);
+  color: white;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.loginPage .role_dropdown select:hover {
+  background-color: #414547;
+}
+@media (max-width: 1500px) {
+  .loginPage {
+    padding: 0em;
+  }
+  .loginPage div {
+    width: 80%;
+  }
+}
+
+@media (max-width: 900px) {
+  .loginPage {
+    padding: 0em;
+  }
+  .loginPage div {
+    width: 100%;
   }
 }
