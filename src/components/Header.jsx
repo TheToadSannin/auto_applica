@@ -3,34 +3,28 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
 const Header = () => {
-
-  const handleNav = ()=>{
+  const handleNav = () => {
     const menuDrawer = document.querySelector("header .nav-drawer");
     const isShow = menuDrawer.getAttribute("isshow");
 
-    if(isShow === "false"){
+    if (isShow === "false") {
       menuDrawer.style.display = "flex";
       menuDrawer.classList.add("nav-drawer-animaition");
       menuDrawer.setAttribute("isshow", "true");
-    }
-    else{
+    } else {
       menuDrawer.style.display = "none";
       menuDrawer.classList.remove("nav-drawer-animaition");
       menuDrawer.setAttribute("isshow", "false");
     }
-    
+
     console.log(menuDrawer.getAttribute("isshow"));
-  }
+  };
 
   return (
     <header>
       <nav>
-        <span style={{opacity:"0"}}>
-          <Logo
-            height={120 + "px"}
-            width={120 + "px"}
-            viewBox={"0 0 500 300"}
-          />
+        <span style={{ opacity: "0" }}>
+          <Logo height={80 + "px"} width={80 + "px"} viewBox={"0 0 500 300"} />
         </span>
         <div className="nav-drawer" isshow="false">
           <ul className="pages">

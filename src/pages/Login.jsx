@@ -75,7 +75,7 @@ const Login = (props) => {
   };
 
   return (
-    <main className="loginPage">
+    <main className="form">
       <div className=" ">
         <form onSubmit={handleLogin} className=" ">
           {/* dropdown menu =============================*/}

@@ -325,76 +325,84 @@ footer .footer p {
 
 /* LOGIN PAGE  */
 
-.loginPage {
+.form {
   padding: 3em;
 }
 
-.loginPage div {
+.form div {
   width: 60%;
   padding: 2em;
   /* border: 1px solid black; */
   margin: 0 auto;
 }
-.loginPage div form {
+.form div form {
   padding: 2em;
   display: flex;
   flex-direction: column;
 }
 
-.loginPage .creds {
+.form .creds {
   display: flex;
   flex-direction: column;
   align-self: center;
   gap: 1em;
   padding: 2em 0em;
 }
-.loginPage .creds input {
+.form .creds input {
   padding: 1em;
   background-color: rgb(224, 224, 224);
   border-radius: 10px;
   /* border: 1px solid black; */
+  border: none;
   margin-top: 1em;
 }
+.form .creds input:focus {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-.loginPage .actionBtn {
+.form .actionBtn {
   padding: 0;
   margin-top: 1em;
   display: flex;
   flex-direction: column;
+  align-items: end;
 }
 
-.loginPage .actionBtn .forgotPassword {
-  text-align: end;
+.form .actionBtn .forgotPassword {
+  width: fit-content;
 }
 
-.loginPage .actionBtn .newUser {
-  text-align: end;
+.form .actionBtn .newUser {
+  width: fit-content;
 }
 
-.loginPage .actionBtn button {
+.form .actionBtn button {
   font-size: 18px;
   margin: 1em 0;
   background-color: var(--nav-bar-color);
   border-radius: 10px;
   color: white;
   padding: 0.7em;
-  text-decoration: underline;
-  transition: all ease-in-out 0.4s;
+  width: 100%;
+
+  transition: all ease-in-out 0.3s;
 }
 
-.loginPage .actionBtn button:hover {
+.form .actionBtn button:hover {
+  text-decoration: underline;
   background-color: #414547;
 }
 
-.loginPage .role_dropdown {
+.form .role_dropdown {
   width: full;
   display: flex;
   justify-content: center;
   padding: 1em 0em;
 }
 
-.loginPage .role_dropdown select {
-  transition: all ease-in-out 0.4s;
+.form .role_dropdown select {
+  transition: all ease-in-out 0.3s;
   text-align: center;
   width: 100%;
   background-color: var(--nav-bar-color);
@@ -403,23 +411,159 @@ footer .footer p {
   padding: 1em;
 }
 
-.loginPage .role_dropdown select:hover {
+.form .role_dropdown select:hover {
   background-color: #414547;
 }
 @media (max-width: 1500px) {
-  .loginPage {
+  .form {
     padding: 0em;
   }
-  .loginPage div {
+  .form div {
     width: 80%;
   }
 }
 
 @media (max-width: 900px) {
-  .loginPage {
+  .form {
     padding: 0em;
   }
-  .loginPage div {
+  .form div {
     width: 100%;
+  }
+}
+
+/* SIGNUP PAGE */
+
+.subCreds {
+  /* border: 1px solid black; */
+}
+
+.form {
+  padding: 3em;
+}
+
+.signupform div {
+  width: 90%;
+  /* padding: 2em; */
+  /* border: 1px solid black; */
+  margin: 0 auto;
+}
+.signupform div form {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.signupform div .subCreds {
+  display: flex;
+  gap: 4em;
+}
+
+.signupform .creds {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1em;
+  padding: 2em 0em;
+}
+.signupform .creds input {
+  padding: 1em;
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  border: none;
+  margin-top: 1em;
+}
+
+.signupform .fullName {
+  width: 30vw;
+}
+
+.signupform .creds input:focus {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.signupform .actionBtn {
+  padding: 0;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.signupform .actionBtn .alreadyUser {
+  width: fit-content;
+}
+
+.signupform .actionBtn button {
+  font-size: 18px;
+  margin: 1em 0;
+  background-color: var(--nav-bar-color);
+  border-radius: 10px;
+  color: white;
+  padding: 0.7em;
+  width: 100%;
+
+  transition: all ease-in-out 0.3s;
+}
+
+.signupform .actionBtn button:hover {
+  text-decoration: underline;
+  background-color: #414547;
+}
+
+.signupform .role_dropdown {
+  width: full;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0em;
+}
+
+.signupform .role_dropdown select {
+  transition: all ease-in-out 0.3s;
+  text-align: center;
+  width: 100%;
+  background-color: var(--nav-bar-color);
+  color: white;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.signupform .role_dropdown select:hover {
+  background-color: #414547;
+}
+@media (max-width: 1200px) {
+  .signupform {
+    padding: 0em;
+  }
+  .signupform div {
+    width: 80%;
+  }
+  .signupform .subCreds {
+    flex-direction: column;
+  }
+  .signupform .creds {
+  }
+  .fullName {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .signupform {
+    padding: 0em;
+  }
+  .signupform div {
+    width: 100%;
+  }
+  .creds {
+    margin: 0 0;
+  }
+  .signupform .fullName {
+    width: 56vw;
+  }
+  .signupform div .subCreds {
+    gap: 0em;
   }
 }
