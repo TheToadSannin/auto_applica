@@ -27,15 +27,21 @@ header nav {
 }
 
 @keyframes nav-bar-animation {
-  0%{opacity: 0; top:-100%}
-  75%{opacity: 00.5;}
-  100%{opacity: 1 !important; top: calc(100% + 2px)}
+  0%{
+    height: 0;
+  }
+  100%{
+    height: calc(auto);
+  }
 }
+
 .nav-drawer-animaition{
   animation-name: nav-bar-animation;
-  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-duration: 0.05s;
   animation-fill-mode: forwards;
 }
+
 header nav div {
   display: flex;
   width: 100%;
@@ -169,11 +175,12 @@ main {
     display: none;
     position: absolute;
     flex-direction: column;
-    top: -100%;
+    top: calc(100% + 5px);
+    height: 360px;
     background-color: var(--nav-bar-color);
     border-radius: 30px;
     padding: 1em;
-    transition: all ease 0.5s;
+    overflow: hidden;
   }
   
 
