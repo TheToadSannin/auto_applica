@@ -24,7 +24,7 @@ const Header = () => {
     <header>
       <nav>
         <span style={{ opacity: "0" }}>
-          <Logo height={80 + "px"} width={80 + "px"} viewBox={"0 0 500 300"} />
+          <Logo height={65 + "px"} width={65 + "px"} viewBox={"0 0 500 300"} />
         </span>
         <div className="nav-drawer" isshow="false">
           <ul className="pages">

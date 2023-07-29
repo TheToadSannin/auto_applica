@@ -17,7 +17,7 @@ const Home = () => {
           </span>
         </h1>
         <div>
-          <img src={image1} alt="" width={"100%"} />
+          <img src={image1} alt=""/>
           <p>
             <span>Streamline</span> Your Application Submissions: Go{" "}
             <span>Paperless</span> and Submit Applications Online{" "}
@@ -33,7 +33,7 @@ const Home = () => {
             . Our mission: <span>secure</span>, efficient online application{" "}
             <span>submissions</span>, no physical paperwork.
           </p>
-          <img src={image2} alt="" width={"100%"} />
+          <img src={image2} alt=""/>
         </div>
       </div>
     </main>

@@ -1,0 +1,27 @@
+import React from 'react'
+import { useEffect } from 'react';
+
+const Dropdown = () => {
+
+    useEffect(() => {
+        const dropdown_items = document.querySelector(".dropdown .dropdown-content").childNodes;
+        dropdown_items.forEach((e)=>{
+            e.addEventListener("click", ()=>{
+                document.querySelector(".dropdown>span").innerHTML = e.textContent;
+                console.log(e.getAttribute("value"));
+            })
+        })
+    }, [])
+
+    return (
+        <div className="dropdown">
+            <span>Select Role</span>
+            <div className="dropdown-content">
+                <span value="teacher">Teacher</span>
+                <span value="student">Student</span>
+            </div>
+        </div>
+    )
+}
+
+export default Dropdown

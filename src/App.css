@@ -3,9 +3,11 @@
 :root {
   --nav-bar-color: #161819;
 }
+
 body {
   /* background-color: #262a2e; */
 }
+
 header {
   display: flex;
   justify-content: center;
@@ -33,6 +35,7 @@ header nav {
   0% {
     height: 0;
   }
+
   100% {
     height: calc(auto);
   }
@@ -113,7 +116,7 @@ header nav .userIcon {
 
 footer {
   background-color: var(--nav-bar-color);
-  width: auto;
+  width: 100vw;
   overflow: hidden;
   color: white;
   font-size: 24px;
@@ -128,6 +131,7 @@ footer button {
   height: 2em;
   position: relative;
 }
+
 footer button::after {
   content: "";
   position: absolute;
@@ -155,6 +159,7 @@ footer div ul li:hover {
   cursor: pointer;
   color: white;
 }
+
 footer .footer {
   text-transform: capitalize;
   display: grid;
@@ -177,25 +182,29 @@ footer .footer p {
     position: absolute;
     flex-direction: column;
     top: calc(100% + 5px);
-    height: 360px;
+    height: auto;
     background-color: var(--nav-bar-color);
     border-radius: 30px;
     padding: 1em;
     overflow: hidden;
+    font-size: 16px;
   }
 
   header .nav-drawer .pages {
     flex-direction: column;
     margin: 0;
   }
+
   header,
   .nav-drawer .pages li {
     padding: 0.7em 1em;
   }
+
   header,
   .nav-drawer .actions li {
     padding: 0.7em 1em;
   }
+
   header .nav-drawer .actions {
     flex-direction: column;
     margin: 0;
@@ -210,6 +219,7 @@ footer .footer p {
   header nav .menu-icon i {
     cursor: pointer;
   }
+
   footer .footer div {
     margin-left: 2em;
     padding: 4em 0 0 0;
@@ -218,19 +228,44 @@ footer .footer p {
   }
 }
 
+/* For Device going back to 900px+  */
+@media (min-width: 900px) {
+  header .nav-drawer {
+    display: flex !important;
+  }
+
+  header .nav-drawer {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav {
+    width: 100vw;
+  }
+}
+
 /* HOME PAGE  */
 .homePage {
   padding: 2em;
-
   margin-top: 2em;
   display: flex;
   justify-content: center;
   font-family: "Tektur", cursive;
 }
-.homePage div {
+
+.homePage>div {
   width: 80vw;
   padding: 2em;
 }
+
 .homePage div h1 {
   margin-top: 2em;
   text-align: center;
@@ -252,15 +287,15 @@ footer .footer p {
 .homePage div div p {
   /* text-shadow: 2px 2px 0px #ef233c, -2px -2px 0px cyan; */
   font-size: 3em;
-  width: 70%;
   /* color: white; */
 }
 
 .homePage div div img {
   padding: 2em;
   margin-right: 1em;
-  border-radius: 5px;
+  object-fit: cover;
 }
+
 .homePage div span {
   color: #ef233c;
 }
@@ -271,35 +306,37 @@ footer .footer p {
     width: 90vw;
     padding: 0;
   }
+
   .homePage div h1 {
-    font-size: 3em;
+    font-size: calc(1em + 5vw);
   }
+
+  .homePage div h1 span {
+    white-space: nowrap;
+  }
+
+  .homePage div div p {
+    font-size: 3em;
+    padding-top: 2em;
+  }
+
   .homePage div div {
     flex-direction: column;
     padding: 0;
     font-size: 12px;
   }
+
   .homePage div div img {
     padding: 0;
   }
 }
 
-/* For Device going back to 900px+  */
-@media (min-width: 900px) {
-  header .nav-drawer {
-    display: flex !important;
-  }
-  header .nav-drawer {
-    height: auto !important;
+@media (max-width: 480px) {
+  .homePage div div p {
+    font-size: 2em;
   }
 }
 
-@media (max-width: 768px) {
-  footer .footer {
-    display: flex;
-    flex-direction: column;
-  }
-}
 /* ERROR: PAGE NOT FOUND PAGE */
 
 .error404page {
@@ -310,260 +347,98 @@ footer .footer p {
   align-items: center;
   font-weight: 100 !important;
 }
+
 .error404page p {
   text-align: center;
   font-size: calc(10vw + 15px);
 }
+
 .error404page span {
   color: red;
 }
+
 @media (min-width: 1140px) {
   .error404page p {
     font-size: calc(5vw + 10px);
   }
 }
 
-/* LOGIN PAGE  */
-
-.form {
-  padding: 3em;
-}
-
-.form div {
-  width: 60%;
+/* Login Page */
+.formMain {
   padding: 2em;
-  /* border: 1px solid black; */
-  margin: 0 auto;
-}
-.form div form {
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-}
-
-.form .creds {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  gap: 1em;
-  padding: 2em 0em;
-}
-.form .creds input {
-  padding: 1em;
-  background-color: rgb(224, 224, 224);
-  border-radius: 10px;
-  /* border: 1px solid black; */
-  border: none;
-  margin-top: 1em;
-}
-.form .creds input:focus {
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.form .actionBtn {
-  padding: 0;
-  margin-top: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.form .actionBtn .forgotPassword {
-  width: fit-content;
-}
-
-.form .actionBtn .newUser {
-  width: fit-content;
-}
-
-.form .actionBtn button {
-  font-size: 18px;
-  margin: 1em 0;
-  background-color: var(--nav-bar-color);
-  border-radius: 10px;
-  color: white;
-  padding: 0.7em;
-  width: 100%;
-
-  transition: all ease-in-out 0.3s;
-}
-
-.form .actionBtn button:hover {
-  text-decoration: underline;
-  background-color: #414547;
-}
-
-.form .role_dropdown {
-  width: full;
+  margin-top: 2em;
   display: flex;
   justify-content: center;
-  padding: 1em 0em;
+  /* font-family: "Tektur", cursive; */
+}
+.formMain .form{
+  width: 500px;
 }
 
-.form .role_dropdown select {
-  transition: all ease-in-out 0.3s;
+.formMain .form .creds{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formMain .form .creds input{
+  width: 100%;
+  padding: 1em;
+  margin: 1.5em 0;
+  border: 1px solid #ced4da;
+  outline: none;
+  font-size: 16px;
+}
+
+.formMain .form .creds input:focus{
+  border: 1px solid gray;
+  box-shadow: 0 0 10px #ced4da;
+}
+
+
+.formMain .form .creds input:first-child{
+  margin-top: 3em;
+}
+
+
+
+/* Dropdown Component */
+
+
+.dropdown {
+  color: white;
+  filter: drop-shadow(0 0 10px rgba(11, 11, 11, 0.5));
+  position: relative;
+  padding: 10px 40px;
+  background-color: #161819;
+  border-radius: 10px;
   text-align: center;
-  width: 100%;
-  background-color: var(--nav-bar-color);
-  color: white;
-  border-radius: 10px;
-  padding: 1em;
 }
 
-.form .role_dropdown select:hover {
-  background-color: #414547;
-}
-@media (max-width: 1500px) {
-  .form {
-    padding: 0em;
-  }
-  .form div {
-    width: 80%;
-  }
-}
-
-@media (max-width: 900px) {
-  .form {
-    padding: 0em;
-  }
-  .form div {
-    width: 100%;
-  }
-}
-
-/* SIGNUP PAGE */
-
-.subCreds {
-  /* border: 1px solid black; */
-}
-
-.form {
-  padding: 3em;
-}
-
-.signupform div {
-  width: 90%;
-  /* padding: 2em; */
-  /* border: 1px solid black; */
-  margin: 0 auto;
-}
-.signupform div form {
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-}
-
-.signupform div .subCreds {
-  display: flex;
-  gap: 4em;
-}
-
-.signupform .creds {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  gap: 1em;
-  padding: 2em 0em;
-}
-.signupform .creds input {
-  padding: 1em;
-  background-color: rgb(224, 224, 224);
-  border-radius: 10px;
-  /* border: 1px solid black; */
-  border: none;
-  margin-top: 1em;
-}
-
-.signupform .fullName {
-  width: 30vw;
-}
-
-.signupform .creds input:focus {
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.signupform .actionBtn {
-  padding: 0;
-  margin-top: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.signupform .actionBtn .alreadyUser {
-  width: fit-content;
-}
-
-.signupform .actionBtn button {
-  font-size: 18px;
-  margin: 1em 0;
-  background-color: var(--nav-bar-color);
-  border-radius: 10px;
-  color: white;
-  padding: 0.7em;
-  width: 100%;
-
-  transition: all ease-in-out 0.3s;
-}
-
-.signupform .actionBtn button:hover {
-  text-decoration: underline;
-  background-color: #414547;
-}
-
-.signupform .role_dropdown {
-  width: full;
-  display: flex;
-  justify-content: center;
-  padding: 1em 0em;
-}
-
-.signupform .role_dropdown select {
-  transition: all ease-in-out 0.3s;
+.dropdown .dropdown-content {
+  display: none;
   text-align: center;
+  flex-direction: column;
+  position: absolute;
   width: 100%;
-  background-color: var(--nav-bar-color);
-  color: white;
+  left: 0;
+  top: 70%;
+  background-color: #161819;
   border-radius: 10px;
-  padding: 1em;
+  margin-top: 12px;
 }
 
-.signupform .role_dropdown select:hover {
-  background-color: #414547;
-}
-@media (max-width: 1200px) {
-  .signupform {
-    padding: 0em;
-  }
-  .signupform div {
-    width: 80%;
-  }
-  .signupform .subCreds {
-    flex-direction: column;
-  }
-  .signupform .creds {
-  }
-  .fullName {
-    width: 100vw;
-  }
+.dropdown .dropdown-content span {
+  padding: 10px;
+  transition: background-color ease 0.3s;
 }
 
-@media (max-width: 900px) {
-  .signupform {
-    padding: 0em;
-  }
-  .signupform div {
-    width: 100%;
-  }
-  .creds {
-    margin: 0 0;
-  }
-  .signupform .fullName {
-    width: 56vw;
-  }
-  .signupform div .subCreds {
-    gap: 0em;
-  }
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown-content span:hover {
+  background-color: #343a40;
+  border-radius: 10px;
+  cursor: pointer;
 }

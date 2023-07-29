@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Dropdown from "../components/Dropdown";
 // import AuthContext from "../providers/AuthContext";
 
 const Login = (props) => {
@@ -75,18 +76,19 @@ const Login = (props) => {
   };
 
   return (
-    <main className="form">
+    <main className="formMain">
       <div className=" ">
-        <form onSubmit={handleLogin} className=" ">
+        <form onSubmit={handleLogin} className="form">
           {/* dropdown menu =============================*/}
-          <div className="role_dropdown">
+          {/* <div className="role_dropdown">
             <select name="role_dropdown" id="role_dropdown">
               <option className="teacherRole" value="teacher">
                 Teacher
               </option>
               <option value="student">Student</option>
             </select>
-          </div>
+          </div> */}
+          <Dropdown/>
 
           {/* ======================================== */}
 
@@ -99,6 +101,7 @@ const Login = (props) => {
               id="email"
               value={credentials.email}
               onChange={handleChange}
+              autoComplete="off"
             />
             <input
               className=""
