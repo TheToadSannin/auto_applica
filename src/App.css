@@ -4,11 +4,14 @@
   --nav-bar-color: #161819;
 }
 body {
-  background-color: #262a2e;
+  /* background-color: #262a2e; */
 }
 header {
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 
 header nav {
@@ -107,6 +110,7 @@ header nav .userIcon {
   border-radius: 50%;
   text-align: center;
 }
+
 footer {
   background-color: var(--nav-bar-color);
   width: 100vw;
@@ -166,9 +170,6 @@ footer .footer p {
   font-size: 0.8em;
 }
 
-main {
-  height: 100vh;
-}
 
 @media (max-width: 900px) {
   header nav .nav-drawer {
@@ -219,6 +220,67 @@ main {
 
 }
 
+main{
+  padding: 2em;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+main div{
+  width: 80vw;
+  padding: 2em;
+}
+main div h1{
+  margin-top: 2em;
+  text-align: center;
+  font-size: 4em;
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+}
+
+main div h1:first-child{
+  margin-top: 0;
+}
+
+
+main div div{
+  display: flex;
+  align-items: center;
+}
+
+main div div p{
+  /* text-shadow: 2px 2px 0px #ef233c, -2px -2px 0px cyan; */
+  font-size: 3em;
+  width: 70%;
+  /* color: white; */
+}
+
+main div div img{
+  padding: 2em;
+  margin-right: 1em;
+  border-radius: 5px;
+}
+main div span{
+  color: #ef233c;
+}
+
+@media (max-width: 900px) {
+  main div{
+    width: 90vw;
+    padding: 0;
+  }
+  main div h1{
+    font-size: 3em;
+  }
+  main div div{
+    flex-direction: column;
+    padding: 0;
+    font-size: 12px;
+  }
+}
+
 /* For Device going back to 900px+  */
 @media (min-width: 900px) {
   header .nav-drawer{
@@ -234,5 +296,28 @@ main {
   footer .footer {
     display: flex;
     flex-direction: column;
+  }
+}
+
+
+
+.error404page{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100 !important;
+}
+.error404page p{
+  text-align: center;
+  font-size: calc(10vw + 15px);
+}
+.error404page span{
+  color: red;
+}
+@media (min-width: 1140px) {
+  .error404page p{
+    font-size: calc(5vw + 10px);
   }
 }
