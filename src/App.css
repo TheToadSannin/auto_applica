@@ -116,7 +116,7 @@ header nav .userIcon {
 
 footer {
   background-color: var(--nav-bar-color);
-  width: 100vw;
+  /* width: 100vw; */
   overflow: hidden;
   color: white;
   font-size: 24px;
