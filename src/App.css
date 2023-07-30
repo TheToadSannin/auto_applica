@@ -492,6 +492,7 @@ footer .footer p {
 
 .errorBox {
   position: absolute;
+  z-index: -1;
   top: 15%;
   width: 100%;
   font-size: 1.5em;

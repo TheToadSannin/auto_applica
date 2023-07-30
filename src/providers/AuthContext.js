@@ -5,6 +5,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
     const [user, setUser] = useState();
     const [role, setRole] = useState();
+    const [isLoading, setIsLoadind] = useState(true);
     const [authenticated, setAuthenticated] = useState(false);
 
 
@@ -20,9 +21,13 @@ export const AuthProvider = ({children}) =>{
             });
             const json = await response.json();
             if (json.userData != null) {
+                setIsLoadind(false);
                 setUser(json.userData);
                 setRole(json.role);
                 setAuthenticated(true);
+            }
+            else{
+                setIsLoadind(false);
             }
            
         }        
@@ -37,6 +42,7 @@ export const AuthProvider = ({children}) =>{
             setUser,
             role,
             setRole,
+            isLoading,
             authenticated,
             setAuthenticated
         }}>

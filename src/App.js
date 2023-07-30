@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import  StudentDashboard from "./pages/students/Dashboard";
 import TeacherDashboard from "./pages/teachers/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
-import { AuthProvider } from "./providers/AuthContext";
 import Footer from "./components/Footer";
 
 
@@ -31,7 +30,6 @@ function App() {
         
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
-
 
 
         <Route path="*" element={<PageNotFound/>} />
