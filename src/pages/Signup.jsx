@@ -23,16 +23,21 @@ const Signup = () => {
 
   document.getElementsByTagName("title")[0].text = "Signup";
 
-  useEffect(() => {
-    const role = document.querySelector(".dropdown>span").getAttribute("value");
-    console.log(role);
-  }, []);
+  const handleDropdown = (value) => {
+    const roll_no = document.getElementById("roll_no");
+    if (value === "student") {
+      roll_no.style.display = "block";
+    }
+    else if (value === "teacher") {
+      roll_no.style.display = "none";
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const role = document.getElementById("role_dropdown");
-    if (role.value === "student") {
+    const role = document.querySelector(".dropdown>span").getAttribute("value");
+    if (role === "student") {
       const response = await fetch("http://localhost:5000/api/createStudent", {
         method: "POST",
         headers: {
@@ -58,7 +63,8 @@ const Signup = () => {
       }
 
       // const json = await response.json();
-    } else {
+    }
+    else if(role === "teacher") {
       const response = await fetch("http://localhost:5000/api/createTeacher", {
         method: "POST",
         headers: {
@@ -84,6 +90,10 @@ const Signup = () => {
         navigate("/login");
       }
     }
+
+    else{
+      console.log("Please Select Role");
+    }
   };
 
   return (
@@ -97,10 +107,10 @@ const Signup = () => {
             </select>
           </div> */}
 
-          <Dropdown />
+          <Dropdown onChange={handleDropdown} />
 
           <div className="creds">
-          <input
+            <input
               className=" "
               type="text"
               placeholder="Full Name"
@@ -136,7 +146,7 @@ const Signup = () => {
               value={credentials.standard}
               onChange={handleChange}
             />
-                        <input
+            <input
               className="Section"
               type="text"
               name="section"

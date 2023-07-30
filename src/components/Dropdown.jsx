@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react';
 import { useEffect } from 'react';
 
-const Dropdown = () => {
+const Dropdown = ({ onChange = ()=> {}}) => {
+
 
     useEffect(() => {
         const dropdown_items = document.querySelector(".dropdown .dropdown-content").childNodes;
@@ -10,6 +12,7 @@ const Dropdown = () => {
                 document.querySelector(".dropdown>span").innerHTML = e.textContent;
                 const value = e.getAttribute("value");
                 document.querySelector(".dropdown>span").setAttribute("value", value);
+                onChange(value);
             })
         })
     }, [])
