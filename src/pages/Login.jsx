@@ -80,7 +80,8 @@ const Login = (props) => {
     }
 
     else{
-      console.log("Select Role");
+      setErrors("Select Role");
+      navigate("/login");
     }
   };
 

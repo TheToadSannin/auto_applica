@@ -94,7 +94,8 @@ const Signup = () => {
     }
 
     else{
-      console.log("Please Select Role");
+      setErrors("Select Role");
+      navigate("/login")
     }
   };
 
