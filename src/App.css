@@ -566,5 +566,50 @@ footer .footer p {
 
 
 /* CSS for CreateApplication.jsx */
+.applicationMain{
+  display: flex;
+  justify-content: center;
+}
+.applicationMain .cards{
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
 
+.applicationMain .cards .card{
+  width: 600px;
+  display: flex;
+  transition: color ease 0.5s;
+}
 
+.applicationMain .cards .card .title-div{
+  width: 100%;
+  /* background-color: blue; */
+  position: relative;
+}
+
+.applicationMain .cards .card .content{
+  content: '';
+  position: absolute;
+  inset: 0 0;
+  width: 0;
+  background-color: red;
+  overflow: hidden;
+  transition: width ease 0.5s;
+}
+
+.applicationMain .cards .card:hover *{
+  width: 100%;
+}
+
+.applicationMain .cards .card p{
+  padding: 0.5em;
+  font-size: 20px;
+  width: 600px;
+}
+.applicationMain .cards .card h1{
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
