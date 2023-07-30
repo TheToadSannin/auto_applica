@@ -10,7 +10,7 @@ const Login = (props) => {
   const {user, setUser, role, setRole, isLoading, authenticated, setAuthenticated} = useContext(AuthContext);
   const [errors, setErrors] = useState(null);
 
-  
+
   useEffect(()=>{
     if(!isLoading){
       if(authenticated){
@@ -116,7 +116,6 @@ const Login = (props) => {
               id="email"
               value={credentials.email}
               onChange={handleChange}
-              autoComplete="off"
             />
             <input
               className=""

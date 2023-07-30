@@ -6,17 +6,20 @@ import AuthContext from "../../providers/AuthContext";
 
 const Dashboard = () => {
   let navigate = useNavigate();
-  // const userData = useAuthContext();
   const [applications, setApplications] = useState(null);
   const { user, role, isLoading, authenticated } = useContext(AuthContext);
 
+
+
   useEffect(() => {
     if (!isLoading) {
-      if (!authenticated) {
+      if (!authenticated || role != "student") {
         navigate("/login");
       }
     }
   }, [isLoading, authenticated]);
+
+
 
   useEffect(() => {
     const getApplication = async () => {
@@ -39,7 +42,7 @@ const Dashboard = () => {
     if (!isLoading) {
       getApplication();
     }
-  }, []);
+  }, [isLoading]);
 
   // if((!userData.userData ) || userData.role != "student"){
   //     return navigate("/login");
@@ -59,7 +62,6 @@ const Dashboard = () => {
     const json = await response.json();
   };
 
-  console.log(applications);
 
   return (
     <>
@@ -72,6 +74,7 @@ const Dashboard = () => {
               return <p key={index}>{application.title}</p>;
             })
           : "no applications"}
+
       </div>
     </>
   );

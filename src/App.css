@@ -105,6 +105,11 @@ header nav ul li:hover:after {
   width: 65%;
 }
 
+.removeUnderLineAuth::after{
+  display: none;
+}
+
+
 header nav .userIcon {
   display: block;
   background-color: #f2044b;
@@ -117,6 +122,8 @@ header nav .userIcon {
 footer {
   background-color: var(--nav-bar-color);
   /* width: 100vw; */
+  /* position: fixed;
+  bottom: 0; */
   overflow: hidden;
   color: white;
   font-size: 24px;

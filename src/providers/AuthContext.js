@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     getUserData();
+
   }, []);
 
   return (

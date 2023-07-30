@@ -7,60 +7,61 @@ import AuthContext from '../../providers/AuthContext';
 
 const Dashboard = () => {
 
- const [applications, setApplications] = useState();
- const {user, role, isLoading, authenticated} = useContext(AuthContext);
+    const [applications, setApplications] = useState();
+    const { user, role, isLoading, authenticated } = useContext(AuthContext);
 
- const navigate = useNavigate();
-
-
-
- useEffect(()=>{
-    if(!isLoading){
-        console.log(role);
-        if(!authenticated){
-            navigate("/login");
-        }
-    }
-}, [isLoading, authenticated])
+    const navigate = useNavigate();
 
 
 
- useEffect(()=>{
-    const getApplication = async ()=>{
-        const standard = "10000000";
-        const response = await fetch(`http://localhost:5000/api/getApplicationWithStudent?standard=${standard}`, {
-            method: "GET",
-            headers:{
-                "Content-Type": "application/json"
+    useEffect(() => {
+        if (!isLoading) {
+            if (!authenticated || role != "teacher") {
+                navigate("/login");
             }
-        });
-
-        const json = await response.json();
-        setApplications(json);
-    }
-
-    getApplication();
-
- }, []);
-
-
-    
-
-        
-  return (
-    <div>
-        {
-            (applications)?(
-                applications.map((application, index)=>{
-                    return <p key={index}>{application.title + " by "+application.student.fullname}</p>
-                })
-            ):("No Applications")
         }
-        {
-            // console.log(user.name)
+    }, [isLoading, authenticated])
+
+
+
+    useEffect(() => {
+        const getApplication = async () => {
+            const standard = user.standard;
+            const response = await fetch(`http://localhost:5000/api/getApplicationWithStudent?standard=${standard}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const json = await response.json();
+            setApplications(json);
         }
-    </div>
-  )
+        if (!isLoading) {
+            getApplication();
+        }
+
+
+    }, [isLoading]);
+
+
+
+
+
+    return (
+        <div>
+            {
+                (applications)?((applications.length > 0) ? (
+                    applications.map((application, index) => {
+                        return <p key={index}>{application.title + " by " + application.student.fullname}</p>
+                    })
+                ) : ("No Applications")):""
+            }
+            {
+                // console.log(user.name)
+            }
+        </div>
+    )
 }
 
 export default Dashboard

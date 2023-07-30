@@ -50,18 +50,18 @@ const Header = () => {
             </li>
           </ul>
           <ul className="actions">
-            <li>
+            <li className={authenticated?"removeUnderLineAuth":""}>
               {!authenticated ? (
                 <Link to="/login">Login</Link>
               ) : (
-                <button onClick={handleLogout}>Logout</button>
+                <div className="userIcon">{user.fullname[0]}</div>
               )}
             </li>
             <li>
               {!authenticated ? (
                 <Link to="/signup">Sign-Up</Link>
               ) : (
-                <div className="userIcon">{user.fullname[0]}</div>
+                <button onClick={handleLogout}>Logout</button>
               )}
             </li>
             <li></li>
