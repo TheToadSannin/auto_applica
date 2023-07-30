@@ -1,8 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/logo.svg";
+import { useContext } from "react";
+import AuthContext from "../providers/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { user, role, isLoading, authenticated, setAuthenticated } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setAuthenticated(false);
+    navigate("/login");
+  };
+
   const handleNav = () => {
     const menuDrawer = document.querySelector("header .nav-drawer");
     const isShow = menuDrawer.getAttribute("isshow");
@@ -37,14 +51,20 @@ const Header = () => {
           </ul>
           <ul className="actions">
             <li>
-              <Link to="/login">Login</Link>
+              {!authenticated ? (
+                <Link to="/login">Login</Link>
+              ) : (
+                <button onClick={handleLogout}>Logout</button>
+              )}
             </li>
             <li>
-              <Link to="/signup">Sign-Up</Link>
+              {!authenticated ? (
+                <Link to="/signup">Sign-Up</Link>
+              ) : (
+                <div className="userIcon">{user.fullname[0]}</div>
+              )}
             </li>
-            <li>
-              <div className="userIcon">L</div>
-            </li>
+            <li></li>
           </ul>
         </div>
         <div className="menu-icon">

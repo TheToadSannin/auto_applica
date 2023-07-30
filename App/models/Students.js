@@ -39,8 +39,8 @@ const StudentSchema = new Schema(
     },
 
     token: {
-      type: String
-    }
+      type: String,
+    },
   },
   {
     collection: "students",

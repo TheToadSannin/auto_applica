@@ -106,8 +106,8 @@ header nav ul li:hover:after {
 }
 
 header nav .userIcon {
-  display: none;
-  background-color: #5de0e6;
+  display: block;
+  background-color: #f2044b;
   width: 40px;
   height: 40px;
   border-radius: 50%;
