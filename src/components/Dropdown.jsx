@@ -8,14 +8,15 @@ const Dropdown = () => {
         dropdown_items.forEach((e)=>{
             e.addEventListener("click", ()=>{
                 document.querySelector(".dropdown>span").innerHTML = e.textContent;
-                console.log(e.getAttribute("value"));
+                const value = e.getAttribute("value");
+                document.querySelector(".dropdown>span").setAttribute("value", value);
             })
         })
     }, [])
 
     return (
         <div className="dropdown">
-            <span>Select Role</span>
+            <span value="">Select Role</span>
             <div className="dropdown-content">
                 <span value="teacher">Teacher</span>
                 <span value="student">Student</span>

@@ -22,8 +22,10 @@ const Login = (props) => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const role = document.getElementById("role_dropdown");
-    if (role.value === "teacher") {
+
+    // Selecting Role
+    const role = document.querySelector(".dropdown>span").getAttribute("value");
+    if (role === "teacher") {
       const response = await fetch("http://localhost:5000/api/loginTeacher", {
         method: "POST",
         headers: {
@@ -49,7 +51,8 @@ const Login = (props) => {
         // setAuthenticated(true);
         navigate("/teacher/dashboard");
       }
-    } else {
+    } 
+    else if(role === "student"){
       const response = await fetch("http://localhost:5000/api/loginStudent", {
         method: "POST",
         headers: {
@@ -73,6 +76,10 @@ const Login = (props) => {
         navigate("/student/dashboard");
       }
     }
+
+    else{
+      console.log("Select Role");
+    }
   };
 
   return (
@@ -80,16 +87,7 @@ const Login = (props) => {
       <div className=" ">
         <form onSubmit={handleLogin} className="form">
           {/* dropdown menu =============================*/}
-          {/* <div className="role_dropdown">
-            <select name="role_dropdown" id="role_dropdown">
-              <option className="teacherRole" value="teacher">
-                Teacher
-              </option>
-              <option value="student">Student</option>
-            </select>
-          </div> */}
           <Dropdown/>
-
           {/* ======================================== */}
 
           <div className="creds">
@@ -113,17 +111,19 @@ const Login = (props) => {
               onChange={handleChange}
             />
           </div>
+
           <div className="actionBtn">
-            <Link to={"/forgotpassword"} className="forgotPassword">
+            <Link to={"/forgotpassword"}>
               Forgot Password?
             </Link>
             <button type="submit" className="">
               Login
             </button>
-            <Link to={"/signup"} className="newUser">
+            <Link to={"/signup"}>
               New User?
             </Link>
           </div>
+
         </form>
       </div>
     </main>

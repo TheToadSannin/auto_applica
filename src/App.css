@@ -371,36 +371,144 @@ footer .footer p {
   justify-content: center;
   /* font-family: "Tektur", cursive; */
 }
-.formMain .form{
+
+.formMain .form {
   width: 500px;
 }
 
-.formMain .form .creds{
+.formMain .form .creds {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.formMain .form .creds input{
+.formMain .form .creds input {
   width: 100%;
   padding: 1em;
-  margin: 1.5em 0;
+  margin: 1.5em 1em 0 0;
   border: 1px solid #ced4da;
   outline: none;
   font-size: 16px;
 }
 
-.formMain .form .creds input:focus{
+.formMain .form .creds input:focus {
   border: 1px solid gray;
   box-shadow: 0 0 10px #ced4da;
 }
 
 
-.formMain .form .creds input:first-child{
+.formMain .form .creds input:first-child {
   margin-top: 3em;
 }
 
+.formMain .form .actionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.5em 0 0 0;
+}
 
+.formMain .form .actionBtn a {
+  padding: 1em 0;
+  color: #495057;
+}
+
+.formMain .form .actionBtn a:hover {
+  color: black;
+}
+
+.formMain .form .actionBtn button {
+  width: 90px;
+  background-color: #d61a3c;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(100, 11, 11, 0.5);
+  transition: all ease 0.5s;
+}
+
+.formMain .form .actionBtn button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100, 11, 11, 0.5);
+}
+
+
+/* Signup form */
+.mainSignup {
+  padding: 2em;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.mainSignup .signupForm {
+  width: 700px;
+}
+
+.mainSignup .signupForm .creds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mainSignup .signupForm .creds input {
+  width: 100%;
+  padding: 1em;
+  margin: 1.5em 0 0 0;
+  border: 1px solid #ced4da;
+  outline: none;
+  font-size: 16px;
+}
+
+.mainSignup .signupForm .creds input:focus {
+  border: 1px solid gray;
+  box-shadow: 0 0 10px #ced4da;
+}
+
+.mainSignup .signupForm .actionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.5em 0 0 0;
+}
+
+.mainSignup .signupForm .actionBtn button {
+  width: 90px;
+  background-color: #d61a3c;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(100, 11, 11, 0.5);
+  transition: all ease 0.5s;
+}
+.mainSignup .signupForm .actionBtn button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100, 11, 11, 0.5);
+}
+
+.mainSignup .signupForm .actionBtn a {
+  padding: 1em 0;
+  color: #495057;
+}
+
+
+@media (max-width: 550px) {
+
+  .formMain .form,
+  .mainSignup .signupForm {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainSignup .signupForm .creds {
+    display: flex;
+    flex-direction: column;
+  }
+  .mainSignup .signupForm{
+    width: 90vw;
+  }
+}
 
 /* Dropdown Component */
 

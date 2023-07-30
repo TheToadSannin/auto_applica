@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Dropdown from "../components/Dropdown";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -23,15 +24,8 @@ const Signup = () => {
   document.getElementsByTagName("title")[0].text = "Signup";
 
   useEffect(() => {
-    const role = document.getElementById("role_dropdown");
-    role.onchange = function () {
-      const roll_no = document.getElementById("student_div");
-      if (role.value === "teacher") {
-        roll_no.style.display = "none";
-      } else {
-        roll_no.style.display = "block";
-      }
-    };
+    const role = document.querySelector(".dropdown>span").getAttribute("value");
+    console.log(role);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -93,18 +87,20 @@ const Signup = () => {
   };
 
   return (
-    <main className="signupform">
+    <main className="mainSignup">
       <div className="">
-        <form onSubmit={handleSubmit} className="">
-          <div className="role_dropdown">
+        <form onSubmit={handleSubmit} className="signupForm">
+          {/* <div className="role_dropdown">
             <select name="role_dropdown" id="role_dropdown">
               <option value="teacher">Teacher</option>
               <option value="student">Student</option>
             </select>
-          </div>
+          </div> */}
 
-          <div className="creds fullName">
-            <input
+          <Dropdown />
+
+          <div className="creds">
+          <input
               className=" "
               type="text"
               placeholder="Full Name"
@@ -113,67 +109,62 @@ const Signup = () => {
               value={credentials.fullname}
               onChange={handleChange}
             />
+            <input
+              className=" "
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              value={credentials.email}
+              onChange={handleChange}
+            />
+            <input
+              className="Roll Number"
+              type="text"
+              name="roll_no"
+              id="roll_no"
+              placeholder="Roll Number"
+              value={credentials.roll_no}
+              onChange={handleChange}
+            />
+            <input
+              className=""
+              type="text"
+              name="standard"
+              id="standard"
+              placeholder="Standard"
+              value={credentials.standard}
+              onChange={handleChange}
+            />
+                        <input
+              className="Section"
+              type="text"
+              name="section"
+              id="section"
+              placeholder="Section"
+              value={credentials.section}
+              onChange={handleChange}
+            />
+            <input
+              className=" "
+              type="textbox"
+              placeholder="Address"
+              name="address"
+              id="address"
+              value={credentials.address}
+              onChange={handleChange}
+            />
+            <input
+              className=" "
+              type="password"
+              placeholder="Password"
+              name="password"
+              id="password"
+              value={credentials.password}
+              onChange={handleChange}
+            />
           </div>
-          <div className="subCreds">
-            <div className="creds">
-              <input
-                className=" "
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                value={credentials.email}
-                onChange={handleChange}
-              />
-              <input
-                className="Roll Number"
-                type="text"
-                name="roll_no"
-                id="roll_no"
-                placeholder="Roll Number"
-                value={credentials.roll_no}
-                onChange={handleChange}
-              />
-              <input
-                className=""
-                type="text"
-                name="standard"
-                id="standard"
-                placeholder="Standard"
-                value={credentials.standard}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="creds">
-              <input
-                className="Section"
-                type="text"
-                name="section"
-                id="section"
-                placeholder="Section"
-                value={credentials.section}
-                onChange={handleChange}
-              />
-              <input
-                className=" "
-                type="textbox"
-                placeholder="Adress"
-                name="address"
-                id="address"
-                value={credentials.address}
-                onChange={handleChange}
-              />
-              <input
-                className=" "
-                type="password"
-                placeholder="Password"
-                name="password"
-                id="password"
-                value={credentials.password}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+
 
           <div className="actionBtn">
             <button type="submit" className="">
