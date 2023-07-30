@@ -374,6 +374,7 @@ footer .footer p {
 
 .formMain .form {
   width: 500px;
+  position: relative;
 }
 
 .formMain .form .creds {
@@ -489,6 +490,15 @@ footer .footer p {
 .mainSignup .signupForm .actionBtn a {
   padding: 1em 0;
   color: #495057;
+}
+
+
+.errorBox{
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  font-size: 1.5em;
+  color: red;
 }
 
 

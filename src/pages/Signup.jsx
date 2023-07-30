@@ -5,6 +5,8 @@ import Dropdown from "../components/Dropdown";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [errors, setErrors] = useState(null);
+
 
   const [credentials, setcredentials] = useState({
     fullname: "",
@@ -56,7 +58,7 @@ const Signup = () => {
       const json = await response.json();
       console.log(json);
       if (!json.success) {
-        alert("Enter valid credentials");
+        setErrors(json);
       }
       if (json.success) {
         navigate("/login");
@@ -84,7 +86,7 @@ const Signup = () => {
       console.log(json);
 
       if (!json.success) {
-        alert("Enter valid credentials");
+        setErrors(json);
       }
       if (json.success) {
         navigate("/login");
@@ -108,7 +110,9 @@ const Signup = () => {
           </div> */}
 
           <Dropdown onChange={handleDropdown} />
-
+          <div className="errorBox">
+            {errors?errors:""}
+          </div>
           <div className="creds">
             <input
               className=" "

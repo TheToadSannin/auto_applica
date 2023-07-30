@@ -8,6 +8,8 @@ import Dropdown from "../components/Dropdown";
 const Login = (props) => {
   let navigate = useNavigate();
   // const {user, setUser, role, setRole, authenticated, setAuthenticated} = useContext(AuthContext);
+  const [errors, setErrors] = useState(null);
+
 
   const [credentials, setcredentials] = useState({
     email: "",
@@ -39,11 +41,11 @@ const Login = (props) => {
 
       const json = await response.json();
 
-      console.log(json);
 
       if (!json.success) {
-        alert(json.errors);
+        setErrors(json.msg);
       }
+
       if (json.success) {
         localStorage.setItem("token", "BearerTeacher " + json.token);
         // setUser(json.user);
@@ -66,7 +68,7 @@ const Login = (props) => {
       const json = await response.json();
 
       if (!json.success) {
-        alert(json.success);
+        setErrors(json.msg);
       }
       if (json.success) {
         localStorage.setItem("token", "BearerStudent " + json.token);
@@ -89,6 +91,11 @@ const Login = (props) => {
           {/* dropdown menu =============================*/}
           <Dropdown/>
           {/* ======================================== */}
+
+          <div className="errorBox">
+            {errors?errors:""}
+          </div>
+
 
           <div className="creds">
             <input
