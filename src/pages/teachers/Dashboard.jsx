@@ -51,11 +51,11 @@ const Dashboard = () => {
     return (
         <div>
             {
-                (applications)?((applications.length > 0) ? (
+                (applications) ? ((applications.length > 0) ? (
                     applications.map((application, index) => {
                         return <p key={index}>{application.title + " by " + application.student.fullname}</p>
                     })
-                ) : ("No Applications")):""
+                ) : ("No Applications")) : ""
             }
             {
                 // console.log(user.name)
