@@ -261,7 +261,7 @@ footer .footer p {
   font-family: "Tektur", cursive;
 }
 
-.homePage>div {
+.homePage > div {
   width: 80vw;
   padding: 2em;
 }
@@ -397,7 +397,6 @@ footer .footer p {
   box-shadow: 0 0 10px #ced4da;
 }
 
-
 .formMain .form .creds input:first-child {
   margin-top: 3em;
 }
@@ -432,7 +431,6 @@ footer .footer p {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(100, 11, 11, 0.5);
 }
-
 
 /* Signup form */
 .mainSignup {
@@ -492,8 +490,7 @@ footer .footer p {
   color: #495057;
 }
 
-
-.errorBox{
+.errorBox {
   position: absolute;
   top: 15%;
   width: 100%;
@@ -501,9 +498,7 @@ footer .footer p {
   color: red;
 }
 
-
 @media (max-width: 550px) {
-
   .formMain .form,
   .mainSignup .signupForm {
     width: 90vw;
@@ -515,13 +510,12 @@ footer .footer p {
     display: flex;
     flex-direction: column;
   }
-  .mainSignup .signupForm{
+  .mainSignup .signupForm {
     width: 90vw;
   }
 }
 
 /* Dropdown Component */
-
 
 .dropdown {
   color: white;

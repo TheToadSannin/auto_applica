@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tektur&display=swap");
 *,
 ::after,
 ::before {
@@ -27,14 +27,12 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  display: none;
   opacity: 0;
-  background: none; /* color of the tracking area */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--nav-bar-color); /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid white; /* creates padding around scroll thumb */
+  border: 1px solid white; /* creates padding around scroll thumb */
 }
