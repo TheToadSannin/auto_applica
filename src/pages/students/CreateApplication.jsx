@@ -1,29 +1,37 @@
-import React from 'react'
+import React from "react";
 
 const CreateApplication = () => {
   return (
-    <main className='applicationMain'>
-      <div className='cards'>
+    <main className="applicationMain">
+      <div className="cards">
         <AppCard />
       </div>
     </main>
-  )
-}
+  );
+};
 
 const AppCard = () => {
   return (
-    <div className='card'>
+    <div className="card">
       <div>
-        <img src="https://picsum.photos/300/300" alt="asdfasdf" />
+        <img
+          src="https://picsum.photos/300/300"
+          alt="asdfasdf"
+          width={100 + "%"}
+        />
       </div>
-      <div className='title-div'>
-        <h1>Title</h1>
-        <div className='content'>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim praesentium eveniet tenetur nesciunt officiis eius id, repudiandae soluta cupiditate nemo!</p>
+      <div className="title-div">
+        <h1>Application for Sick Leave</h1>
+        <div className="content">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim
+            praesentium eveniet tenetur nesciunt officiis eius id, repudiandae
+            soluta cupiditate nemo!
+          </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateApplication
+export default CreateApplication;

@@ -105,10 +105,9 @@ header nav ul li:hover:after {
   width: 65%;
 }
 
-.removeUnderLineAuth::after{
+.removeUnderLineAuth::after {
   display: none;
 }
-
 
 header nav .userIcon {
   display: block;
@@ -563,52 +562,78 @@ footer .footer p {
   cursor: pointer;
 }
 
-
-
 /* CSS for CreateApplication.jsx */
-.applicationMain{
+.applicationMain {
   display: flex;
   justify-content: center;
 }
-.applicationMain .cards{
+.applicationMain .cards {
   width: 80vw;
   display: flex;
   justify-content: center;
   padding: 2em;
 }
+.applicationMain .cards .card img {
+  border-radius: 10px 0 0 10px;
+  transition: ease-in-out 0.25s;
+}
 
-.applicationMain .cards .card{
+.applicationMain .cards .card {
+  border-radius: 10px;
   width: 600px;
   display: flex;
   transition: color ease 0.5s;
+  transition: all ease-in-out 0.3s;
 }
 
-.applicationMain .cards .card .title-div{
+.applicationMain .cards .card .title-div {
+  background-color: rgb(199, 199, 199);
+  border-radius: 0 10px 10px 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* background-color: blue; */
   position: relative;
 }
 
-.applicationMain .cards .card .content{
-  content: '';
+.applicationMain .cards .card .content {
+  content: "";
+  border-radius: 0 10px 10px 0;
   position: absolute;
   inset: 0 0;
   width: 0;
-  background-color: red;
+  background-color: rgb(152, 0, 0);
   overflow: hidden;
   transition: width ease 0.5s;
+  color: white;
 }
 
-.applicationMain .cards .card:hover *{
+.applicationMain .cards .card:hover .content {
   width: 100%;
+  cursor: pointer;
+}
+.applicationMain .cards .card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.applicationMain .cards .card div:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+  background-color: black;
 }
 
-.applicationMain .cards .card p{
+.applicationMain .cards .card:hover img {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.applicationMain .cards .card p {
   padding: 0.5em;
   font-size: 20px;
-  width: 600px;
+  width: 100%;
 }
-.applicationMain .cards .card h1{
+.applicationMain .cards .card h1 {
   font-size: 24px;
   text-transform: uppercase;
   text-align: center;
