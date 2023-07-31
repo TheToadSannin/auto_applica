@@ -5,6 +5,11 @@ const CreateApplication = () => {
     <main className="applicationMain">
       <div className="cards">
         <AppCard />
+        <AppCard />
+        <AppCard />
+        <AppCard />
+        <AppCard />
+        <AppCard />
       </div>
     </main>
   );
@@ -15,20 +20,12 @@ const AppCard = () => {
     <div className="card">
       <div>
         <img
-          src="https://picsum.photos/300/300"
-          alt="asdfasdf"
+          src="https://media.tenor.com/rs1yXZWnBOgAAAAC/gif-arts.gif"
           width={100 + "%"}
         />
       </div>
       <div className="title-div">
         <h1>Application for Sick Leave</h1>
-        <div className="content">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim
-            praesentium eveniet tenetur nesciunt officiis eius id, repudiandae
-            soluta cupiditate nemo!
-          </p>
-        </div>
       </div>
     </div>
   );
