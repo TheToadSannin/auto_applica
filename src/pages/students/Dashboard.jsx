@@ -9,8 +9,6 @@ const Dashboard = () => {
   const [applications, setApplications] = useState(null);
   const { user, role, isLoading, authenticated } = useContext(AuthContext);
 
-
-
   useEffect(() => {
     if (!isLoading) {
       if (!authenticated || role != "student") {
@@ -18,8 +16,6 @@ const Dashboard = () => {
       }
     }
   }, [isLoading, authenticated]);
-
-
 
   useEffect(() => {
     const getApplication = async () => {
@@ -62,7 +58,6 @@ const Dashboard = () => {
     const json = await response.json();
   };
 
-
   return (
     <>
       {/* <form onSubmit={createApplication}>
@@ -74,7 +69,6 @@ const Dashboard = () => {
               return <p key={index}>{application.title}</p>;
             })
           : "no applications"}
-
       </div>
     </>
   );

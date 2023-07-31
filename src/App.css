@@ -576,40 +576,39 @@ footer .footer p {
   padding: 2em;
 }
 
-
-.applicationMain .cards .card{
+.applicationMain .cards .card {
+  min-height: 150px;
   display: flex;
   position: relative;
   width: 100%;
 }
 
-.applicationMain .cards .card::after{
-  content: '';
+.applicationMain .cards .card::after {
+  content: "";
   position: absolute;
   width: 20%;
   height: 100%;
   background-color: #ef233c;
   inset: 0 0;
   z-index: -1;
-  transition: width ease-in-out 0.5s;
+  transition: width ease-in-out 0.3s;
   border-radius: 20px;
 }
 
-.applicationMain .cards .card:hover:after{
+.applicationMain .cards .card:hover:after {
   width: 100%;
 }
 
-
-.applicationMain .cards .card div:last-child{
+.applicationMain .cards .card div:last-child {
   width: 70%;
   padding: 0.5em;
 }
 
-.applicationMain .cards .card div:last-child h1{
+.applicationMain .cards .card div:last-child h1 {
   text-transform: uppercase;
   font-size: 18px;
 }
-.applicationMain .cards .card div:first-child{
+.applicationMain .cards .card div:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -617,17 +616,16 @@ footer .footer p {
   padding: 1em;
   background-color: #ef233c;
   border-radius: 20px 0 0 20px;
-} 
-.applicationMain .cards .card div img{
+}
+.applicationMain .cards .card div img {
   width: 100px;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
-.applicationMain .cards .card .title-div{
+.applicationMain .cards .card .title-div {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 @media (max-width: 650px) {
@@ -636,7 +634,7 @@ footer .footer p {
     flex-direction: column;
     width: 100%;
   }
-  .applicationMain .cards .card div:last-child h1{
+  .applicationMain .cards .card div:last-child h1 {
     font-size: 16px;
   }
 }

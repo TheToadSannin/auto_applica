@@ -11,15 +11,12 @@ app.get("/", function (req, res) {
   res.send("hello");
 });
 
-
-app.post("/someData", (req, res)=>{
+app.post("/someData", (req, res) => {
   console.log(req.headers.authorization);
   res.send("hello");
-  
 });
 
 mongoDB();
-
 
 app.use("/api", require("./routes/register.js"));
 app.use("/api", require("./routes/auth.js"));

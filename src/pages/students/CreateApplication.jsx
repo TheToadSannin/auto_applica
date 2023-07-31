@@ -1,31 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const CreateApplication = () => {
+  const [applicationTemplates, setApplicationsTemplates] = useState(null);
+
+  useEffect(() => {
+    const getApplicationTemplates = async () => {
+      const response = await fetch(
+        "http://localhost:5000/api/applicationTemplates",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const json = await response.json();
+      setApplicationsTemplates(json);
+    };
+    getApplicationTemplates();
+  }, []);
+
+  console.log(applicationTemplates);
+
   return (
     <main className="applicationMain">
       <div className="cards">
-        <AppCard />
-        <AppCard />
-        <AppCard />
-        <AppCard />
-        <AppCard />
-        <AppCard />
+        {applicationTemplates
+          ? applicationTemplates.map((template, index) => {
+              return (
+                <AppCard
+                  key={index}
+                  icon={template.imgUrl}
+                  subject={template.subject}
+                />
+              );
+            })
+          : " "}
       </div>
     </main>
   );
 };
 
-const AppCard = () => {
+const AppCard = (props) => {
   return (
     <div className="card">
       <div>
-        <img
-          src="https://media.tenor.com/rs1yXZWnBOgAAAAC/gif-arts.gif"
-          width={100 + "%"}
-        />
+        <img src={props.icon} width={100 + "%"} />
       </div>
       <div className="title-div">
-        <h1>Application for Sick Leave</h1>
+        <h1>{props.subject}</h1>
       </div>
     </div>
   );
