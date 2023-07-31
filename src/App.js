@@ -10,6 +10,7 @@ import StudentDashboard from "./pages/students/Dashboard";
 import TeacherDashboard from "./pages/teachers/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import Footer from "./components/Footer";
+import EditApplication from "./pages/students/EditApplication";
 
 
 
@@ -24,6 +25,10 @@ function App() {
         <Route
           path="/student/createApplication"
           element={<CreateApplication />}
+        />
+        <Route
+          path="/student/editApplication/:applicationID"
+          element={<EditApplication />}
         />
 
         <Route path="/student/dashboard" element={<StudentDashboard />} />

@@ -638,3 +638,24 @@ footer .footer p {
     font-size: 16px;
   }
 }
+
+
+.editAppMain{
+  padding: 2em;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.editAppMain>div{
+  border: 1px solid black;
+}
+
+.editAppMain div div{
+  padding: 1em;
+  font-size: 18px;
+}
+
+.editAppMain div div>p:first-child{
+  line-height: 3;
+}

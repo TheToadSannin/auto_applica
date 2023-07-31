@@ -80,4 +80,14 @@ router.get("/applicationTemplates", async (req, res) => {
   }
 });
 
+router.get("/getApplicationTemplate", async(req, res)=>{
+  try{
+    const applicationID = req.query.id;
+    const application = await applicationTemplate.find({_id:applicationID});
+    res.json(application[0]);
+  }catch(error){
+    console.log(error, "cannot fetch application");
+  }
+});
+
 module.exports = router;
