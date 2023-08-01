@@ -645,6 +645,7 @@ footer .footer p {
   margin-top: 2em;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .editAppMain>div{
@@ -658,3 +659,4 @@ footer .footer p {
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
 }
+

@@ -6,6 +6,9 @@ const ApplicationSchema = new Schema({
   title: {
     type: String,
   },
+  body:{
+    type: String
+  },
   student_id: {
     type: Schema.Types.ObjectId,
   },

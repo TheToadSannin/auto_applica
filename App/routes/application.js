@@ -17,8 +17,9 @@ router.post(
   async (req, res) => {
     try {
       await Application.create({
-        title: "Application for Leave",
-        student_id: "64b969f616bef27f5d5e67a3",
+        title: req.body.appSubject,
+        body: req.body.editorData,
+        student_id: req.body.student_id,
         isAccepted: false,
       });
 
