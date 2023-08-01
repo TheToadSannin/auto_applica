@@ -59,19 +59,9 @@ const Dashboard = () => {
   };
 
   return (
-    <>
-      {/* <form onSubmit={createApplication}>
-        <button type="submit">Create Application</button>
-      </form> */}
-      <div>
-        {applications
-          ? applications.map((application, index) => {
-              return <p key={index}>{application.title}</p>;
-            })
-          : "no applications"}
-      </div>
-    </>
+    "lol"
   );
 };
+
 
 export default Dashboard;

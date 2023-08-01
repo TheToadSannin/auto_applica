@@ -20,6 +20,7 @@ router.post(
         title: req.body.appSubject,
         body: req.body.editorData,
         student_id: req.body.student_id,
+        imgUrl: req.body.imgUrl,
         isAccepted: false,
       });
 

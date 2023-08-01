@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import { useContext } from "react";
@@ -10,12 +10,22 @@ import Notification from "../../components/Notification";
 
 const EditApplication = () => {
   const param = useParams();
-  const { user, isLoading, authenticated } = useContext(AuthContext);
+  const { user,role, isLoading, authenticated } = useContext(AuthContext);
   const [application, setApplication] = useState();
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState(null);
-
   const { quill, quillRef } = useQuill();
+  
+  const navigate = useNavigate();
+
+
+  useEffect(()=>{
+    if(!isLoading){
+        if(!authenticated || role != "student"){
+            navigate("/login");
+        }
+    }
+  });
   useEffect(() => {
     const getApplication = async () => {
       const response = await fetch(
@@ -74,6 +84,7 @@ const EditApplication = () => {
         body: JSON.stringify({
           editorData: getEditorData(),
           appSubject: application.subject,
+          imgUrl: application.imgUrl,
           student_id: user._id,
         }),
       }

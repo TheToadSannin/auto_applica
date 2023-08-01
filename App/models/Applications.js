@@ -12,6 +12,9 @@ const ApplicationSchema = new Schema({
   student_id: {
     type: Schema.Types.ObjectId,
   },
+  imgUrl: {
+    type: String,
+  },
   isAccepted: {
     type: Boolean,
   },

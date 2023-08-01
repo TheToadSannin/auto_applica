@@ -583,6 +583,10 @@ footer .footer p {
   width: 100%;
 }
 
+.applicationMain .cards .card:hover{
+  cursor: pointer;
+}
+
 .applicationMain .cards .card::after {
   content: "";
   position: absolute;
