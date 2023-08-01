@@ -6,16 +6,17 @@ const { json } = require("express");
 
 const authMiddlerWare = require("../middleware/auth/auth");
 
-router.post("/loginStudent", 
- [
+router.post(
+  "/loginStudent",
+  [
     body("email", "invalid email").isEmail(),
     body("password", "invalid password"),
- ],
+  ],
   authController.handleStudentLogin
-)
+);
 
-
-router.post("/loginTeacher", 
+router.post(
+  "/loginTeacher",
   [
     body("email", "invalid email").isEmail(),
     body("password", "invalid password"),
@@ -23,9 +24,8 @@ router.post("/loginTeacher",
   authController.handleTeacherLogin
 );
 
-router.get("/isAuth", authMiddlerWare.mid_auth, (req, res)=>{
-   res.json({userData:req.userData, role: req.role});
+router.get("/isAuth", authMiddlerWare.mid_auth, (req, res) => {
+  res.json({ userData: req.userData, role: req.role });
 });
-
 
 module.exports = router;

@@ -23,7 +23,7 @@ router.post(
         isAccepted: false,
       });
 
-      res.json({ success: true });
+      res.json({ success: true, message: "Application Submitted" });
     } catch (error) {
       res.json(error);
     }
@@ -81,12 +81,12 @@ router.get("/applicationTemplates", async (req, res) => {
   }
 });
 
-router.get("/getApplicationTemplate", async(req, res)=>{
-  try{
+router.get("/getApplicationTemplate", async (req, res) => {
+  try {
     const applicationID = req.query.id;
-    const application = await applicationTemplate.find({_id:applicationID});
+    const application = await applicationTemplate.find({ _id: applicationID });
     res.json(application[0]);
-  }catch(error){
+  } catch (error) {
     console.log(error, "cannot fetch application");
   }
 });

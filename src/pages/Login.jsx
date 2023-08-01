@@ -7,18 +7,24 @@ import AuthContext from "../providers/AuthContext";
 
 const Login = (props) => {
   let navigate = useNavigate();
-  const {user, setUser, role, setRole, isLoading, authenticated, setAuthenticated} = useContext(AuthContext);
+  const {
+    user,
+    setUser,
+    role,
+    setRole,
+    isLoading,
+    authenticated,
+    setAuthenticated,
+  } = useContext(AuthContext);
   const [errors, setErrors] = useState(null);
 
-
-  useEffect(()=>{
-    if(!isLoading){
-      if(authenticated){
+  useEffect(() => {
+    if (!isLoading) {
+      if (authenticated) {
         navigate(`/${role}/dashboard`);
       }
     }
-  }, [isLoading, authenticated])
-
+  }, [isLoading, authenticated]);
 
   const [credentials, setcredentials] = useState({
     email: "",
@@ -32,7 +38,6 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
 
     // Selecting Role
     const role = document.querySelector(".dropdown>span").getAttribute("value");
@@ -50,20 +55,19 @@ const Login = (props) => {
 
       const json = await response.json();
 
-
       if (!json.success) {
         setErrors(json.msg);
       }
 
       if (json.success) {
         localStorage.setItem("token", "BearerTeacher " + json.token);
+
         setUser(json.user);
         setRole("teacher");
         setAuthenticated(true);
         navigate("/teacher/dashboard");
       }
-    } 
-    else if(role === "student"){
+    } else if (role === "student") {
       const response = await fetch("http://localhost:5000/api/loginStudent", {
         method: "POST",
         headers: {
@@ -86,9 +90,7 @@ const Login = (props) => {
         setAuthenticated(true);
         navigate("/student/dashboard");
       }
-    }
-
-    else{
+    } else {
       setErrors("Select Role");
       navigate("/login");
     }
@@ -99,13 +101,10 @@ const Login = (props) => {
       <div className=" ">
         <form onSubmit={handleLogin} className="form">
           {/* dropdown menu =============================*/}
-          <Dropdown/>
+          <Dropdown />
           {/* ======================================== */}
 
-          <div className="errorBox">
-            {errors?errors:""}
-          </div>
-
+          <div className="errorBox">{errors ? errors : ""}</div>
 
           <div className="creds">
             <input
@@ -129,17 +128,12 @@ const Login = (props) => {
           </div>
 
           <div className="actionBtn">
-            <Link to={"/forgotpassword"}>
-              Forgot Password?
-            </Link>
+            <Link to={"/forgotpassword"}>Forgot Password?</Link>
             <button type="submit" className="">
               Login
             </button>
-            <Link to={"/signup"}>
-              New User?
-            </Link>
+            <Link to={"/signup"}>New User?</Link>
           </div>
-
         </form>
       </div>
     </main>
