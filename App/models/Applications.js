@@ -6,8 +6,8 @@ const ApplicationSchema = new Schema({
   title: {
     type: String,
   },
-  body:{
-    type: String
+  body: {
+    type: String,
   },
   student_id: {
     type: Schema.Types.ObjectId,
@@ -18,5 +18,6 @@ const ApplicationSchema = new Schema({
   isAccepted: {
     type: Boolean,
   },
+  timestamp: { type: Date, default: Date.now },
 });
 module.exports = mongoose.model("application", ApplicationSchema);

@@ -32,6 +32,13 @@ const Dashboard = () => {
       );
 
       const json = await response.json();
+      json.map((application) => {
+        let ist = new Date(application.timestamp);
+        ist.setHours(ist.getHours() + 5);
+        ist.setMinutes(ist.getMinutes() + 30);
+        application.timestamp = ist.toLocaleDateString();
+      });
+
       setApplications(json);
     };
 
@@ -43,25 +50,38 @@ const Dashboard = () => {
   // if((!userData.userData ) || userData.role != "student"){
   //     return navigate("/login");
   // }
-  const createApplication = async (e) => {
-    e.preventDefault();
-    const response = await fetch(
-      "http://localhost:5000/api/createApplication",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    const json = await response.json();
-  };
 
   return (
-    "lol"
+    <main className="dashboard">
+      {applications
+        ? applications.map((application, index) => {
+            return (
+              <AppCard
+                key={index}
+                title={application.title}
+                date={application.timestamp}
+                status={application.isAccepted}
+              />
+            );
+          })
+        : ""}
+    </main>
   );
 };
 
+const AppCard = (props) => {
+  return (
+    <div className="appcard">
+      <div>
+        <p>{props.title}</p>
+      </div>
+      <hr />
+      <div>
+        <p>Status: {props.isAccepted ? "Accepted" : "Pending"}</p>
+        <p> Submission Date: {props.date}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Dashboard;

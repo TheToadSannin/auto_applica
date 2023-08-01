@@ -36,7 +36,6 @@ router.get("/getApplications", async (req, res) => {
     const student_id = req.query.student_id;
     const applications = await Application.find({ student_id: student_id });
     res.json(applications);
-    console.log(applications);
   } catch (errors) {
     console.log(errors);
   }
