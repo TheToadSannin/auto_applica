@@ -2,11 +2,17 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
+import { useQuill } from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
+import { useContext } from 'react';
+import AuthContext from '../../providers/AuthContext';
 
 
 const EditApplication = () => {
     const param = useParams();
+    const { user, isLoading, authenticated } = useContext(AuthContext);
     const [application, setApplication] = useState();
+    const { quill, quillRef } = useQuill();
 
     useEffect(() => {
         const getApplication = async () => {
@@ -24,33 +30,36 @@ const EditApplication = () => {
         getApplication();
     }, [])
 
+
     useEffect(() => {
+        if (quill && (!isLoading)) {
+            let body = application.body;
 
-        const link = document.createElement("link");
-        link.href = "https://cdn.quilljs.com/1.0.0/quill.snow.css";
-        link.rel = "stylesheet";
+            let countName = (body.match(/{name}/g) || []).length;
+            let countStandard = (body.match(/{standard}/g) || []).length;
 
+            let i = 0;
+            let j = 0;
+            while(i < countName || j < countStandard){
+                body = body.replace("{name}", user.fullname);
+                body = body.replace("{standard}", user.standard);
+                i++;
+                j++;
+            }
 
-        const script = document.createElement("script");
-        script.src = "https://cdn.quilljs.com/1.0.0/quill.js";
-
-        document.head.append(link);
-        document.head.append(script);
-
-    }, []);
+            body = body.replace("{standard}", user.standard);
+            quill.clipboard.dangerouslyPasteHTML(application.subject + "<br>" + body)
+        }
+    }, [quill, isLoading]);
 
 
     return (
         <main className='editAppMain'>
             <div>
-                <div id="toolbar">
-                    <button className="ql-bold">Bold</button>
-                    <button className="ql-italic">Italic</button>
-                </div>
                 {(application) ? (
-                    <div id="editor">
-                        <p>Subject - {application.subject}</p>
-                        <p dangerouslySetInnerHTML={{ __html: application.body }}></p>
+                    <div ref={quillRef}>
+                        {/* <p>Subject - {application.subject}</p>
+                        <p dangerouslySetInnerHTML={{ __html: application.body }}></p> */}
                     </div>) : "No Template Found"
                 }
             </div>

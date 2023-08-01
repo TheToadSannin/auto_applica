@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../providers/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+
 const CreateApplication = () => {
   const [applicationTemplates, setApplicationsTemplates] = useState(null);
   const { user, role, isLoading, authenticated } = useContext(AuthContext);
+
 
   const navigate = useNavigate();
 
@@ -33,6 +35,7 @@ const CreateApplication = () => {
     };
     getApplicationTemplates();
   }, []);
+
 
 
   return (

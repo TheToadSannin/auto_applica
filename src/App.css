@@ -649,13 +649,12 @@ footer .footer p {
 
 .editAppMain>div{
   border: 1px solid black;
+  width: 75vw;
+  overflow: hidden;
 }
 
 .editAppMain div div{
   padding: 1em;
   font-size: 18px;
-}
-
-.editAppMain div div>p:first-child{
-  line-height: 3;
+  font-family: 'Open Sans', sans-serif;
 }
