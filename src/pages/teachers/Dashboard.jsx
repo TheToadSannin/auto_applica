@@ -52,20 +52,19 @@ const Dashboard = () => {
       <div>
         {applications
           ? applications.map((application, index) => {
-            return (
-              <AppCard
-                key={index}
-                title={application.title}
-                date={application.timestamp}
-                status={application.isAccepted}
-                stuname={application.student.fullname}
-                stunroll={application.student.roll_no}
-                appid={application._id}
-              />
-            );
-          })
+              return (
+                <AppCard
+                  key={index}
+                  title={application.title}
+                  date={application.timestamp}
+                  status={application.isAccepted}
+                  stuname={application.student.fullname}
+                  stunroll={application.student.roll_no}
+                  appid={application._id}
+                />
+              );
+            })
           : ""}
-          <AppCard/>
       </div>
     </main>
   );
@@ -82,8 +81,13 @@ const AppCard = (props) => {
     >
       <div>{props.date}</div>
       <div>{props.title}</div>
-      <div><p>{props.stuname}</p><p>{props.stunroll}</p></div>
-      <div><div className={props.status}>{props.status}</div></div>
+      <div>
+        <p>{props.stuname}</p>
+        <p>{props.stunroll}</p>
+      </div>
+      <div>
+        <div className={props.status}>{props.status}</div>
+      </div>
     </div>
   );
 };
