@@ -802,17 +802,27 @@ footer .footer p {
   flex-direction: column;
 }
 
-.viewApplication div:first-child {
+.viewApplication .appbody {
   align-self: center;
   border: 1px solid #343a40;
   width: 60vw;
   padding: 2em;
 }
-.viewApplication div:last-child {
+.viewApplication .actionbtns {
   display: flex;
   justify-content: end;
   align-self: center;
-  width: 60vw;
+  /* width: 60vw; */
+}
+@media (max-width: 600px) {
+  .viewApplication .appbody {
+    width: 350px;
+  }
+}
+@media (max-width: 360px) {
+  .viewApplication .actionbtns {
+    width: 100vw;
+  }
 }
 
 .approvebutton {

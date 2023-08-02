@@ -51,7 +51,7 @@ const Dashboard = () => {
     <main className="dashboard">
       {applications
         ? applications.map((application, index) => {
-            return !application.isAccepted ? (
+            return (
               <AppCard
                 key={index}
                 title={application.title}
@@ -60,8 +60,6 @@ const Dashboard = () => {
                 stuname={application.student.fullname}
                 appid={application._id}
               />
-            ) : (
-              ""
             );
           })
         : ""}
@@ -84,14 +82,7 @@ const AppCard = (props) => {
       <hr />
       <div>
         <p> Submitted by: {props.stuname}</p>
-        <p>
-          Status:{" "}
-          {props.isAccepted != 1
-            ? props.isAccepted != 0
-              ? "rejected"
-              : "pending"
-            : "accepted"}
-        </p>
+        <p>Status:{props.status}</p>
         <p> Submission Date: {props.date}</p>
       </div>
     </div>

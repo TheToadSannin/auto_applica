@@ -22,7 +22,7 @@ router.post(
         body: req.body.editorData,
         student_id: req.body.student_id,
         imgUrl: req.body.imgUrl,
-        isAccepted: 0,
+        isAccepted: "Pending",
       });
 
       res.json({ success: true, message: "Application Submitted" });
@@ -31,6 +31,28 @@ router.post(
     }
   }
 );
+
+router.post("/updateApplication", async (req, res) => {
+  try {
+    const result = await Application.updateOne(
+      {
+        _id: req.body.applicationid,
+      },
+      {
+        $set: {
+          isAccepted: req.body.status,
+        },
+      }
+    );
+    console.log(result);
+    res.json({
+      success: true,
+      message: `Application ` + req.body.status,
+    });
+  } catch (error) {
+    console.log(error, "Cannot update the application status");
+  }
+});
 
 router.get("/getApplications", async (req, res) => {
   try {
