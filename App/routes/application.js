@@ -3,6 +3,7 @@ const Application = require("../models/Applications");
 const applicationTemplate = require("../models/ApplicationTemplates");
 const applicationController = require("../controllers/applicationController");
 const Student = require("../models/Students");
+const { useAsyncError } = require("react-router-dom");
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.post(
         body: req.body.editorData,
         student_id: req.body.student_id,
         imgUrl: req.body.imgUrl,
-        isAccepted: false,
+        isAccepted: 0,
       });
 
       res.json({ success: true, message: "Application Submitted" });
@@ -88,6 +89,19 @@ router.get("/getApplicationTemplate", async (req, res) => {
     res.json(application[0]);
   } catch (error) {
     console.log(error, "cannot fetch application");
+  }
+});
+
+router.get("/viewApplication", async (req, res) => {
+  try {
+    const applicationId = req.query.id;
+    console.log(applicationId);
+    const application = await Application.find({
+      _id: applicationId,
+    });
+    res.json(application[0]);
+  } catch (error) {
+    console.log(error, "Cannot View Application");
   }
 });
 

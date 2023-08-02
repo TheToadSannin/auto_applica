@@ -10,20 +10,19 @@ import Notification from "../../components/Notification";
 
 const EditApplication = () => {
   const param = useParams();
-  const { user,role, isLoading, authenticated } = useContext(AuthContext);
+  const { user, role, isLoading, authenticated } = useContext(AuthContext);
   const [application, setApplication] = useState();
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState(null);
   const { quill, quillRef } = useQuill();
-  
+
   const navigate = useNavigate();
 
-
-  useEffect(()=>{
-    if(!isLoading){
-        if(!authenticated || role != "student"){
-            navigate("/login");
-        }
+  useEffect(() => {
+    if (!isLoading) {
+      if (!authenticated || role != "student") {
+        navigate("/login");
+      }
     }
   });
   useEffect(() => {

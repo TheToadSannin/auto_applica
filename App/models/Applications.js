@@ -16,7 +16,7 @@ const ApplicationSchema = new Schema({
     type: String,
   },
   isAccepted: {
-    type: Boolean,
+    type: Number,
   },
   timestamp: { type: Date, default: Date.now },
 });

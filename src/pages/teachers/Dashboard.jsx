@@ -33,7 +33,14 @@ const Dashboard = () => {
       );
 
       const json = await response.json();
+      json.map((application) => {
+        let ist = new Date(application.timestamp);
+        ist.setHours(ist.getHours() + 5);
+        ist.setMinutes(ist.getMinutes() + 30);
+        application.timestamp = ist.toLocaleDateString();
+      });
       setApplications(json);
+      // console.log(json);
     };
     if (!isLoading) {
       getApplication();
@@ -44,13 +51,17 @@ const Dashboard = () => {
     <main className="dashboard">
       {applications
         ? applications.map((application, index) => {
-            return (
+            return !application.isAccepted ? (
               <AppCard
                 key={index}
                 title={application.title}
                 date={application.timestamp}
                 status={application.isAccepted}
+                stuname={application.student.fullname}
+                appid={application._id}
               />
+            ) : (
+              ""
             );
           })
         : ""}
@@ -59,14 +70,28 @@ const Dashboard = () => {
 };
 
 const AppCard = (props) => {
+  const navigate = useNavigate();
   return (
-    <div className="appcard">
+    <div
+      className="appcard"
+      onClick={() => {
+        navigate(`/teacher/viewapplication/${props.appid}`);
+      }}
+    >
       <div>
         <p>{props.title}</p>
       </div>
       <hr />
       <div>
-        <p>Status: {props.isAccepted ? "Accepted" : "Pending"}</p>
+        <p> Submitted by: {props.stuname}</p>
+        <p>
+          Status:{" "}
+          {props.isAccepted != 1
+            ? props.isAccepted != 0
+              ? "rejected"
+              : "pending"
+            : "accepted"}
+        </p>
         <p> Submission Date: {props.date}</p>
       </div>
     </div>

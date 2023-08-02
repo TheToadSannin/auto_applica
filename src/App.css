@@ -706,7 +706,7 @@ footer .footer p {
 }
 /* EDITAPPLICATION */
 
-.editAppMain div .submitbutton {
+.submitbutton {
   width: 90px;
   background-color: #d61a3c;
   color: white;
@@ -717,7 +717,7 @@ footer .footer p {
   margin: 2em;
 }
 
-.editAppMain div .submitbutton:hover {
+.submitbutton:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(100, 11, 11, 0.5);
 }
@@ -730,6 +730,24 @@ footer .footer p {
   flex-direction: column;
   align-items: center;
 }
+
+.dashboard button {
+  align-self: center;
+  width: fit-content;
+  background-color: var(--nav-bar-color);
+  color: white;
+  padding: 1em 1em;
+  border-radius: 10px;
+  box-shadow: 0 11px 10px rgba(11, 11, 11, 0.5);
+  transition: all ease 0.5s;
+  margin: 2em;
+}
+
+.dashboard button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 11px 20px rgba(11, 11, 11, 0.5);
+}
+
 .appcard {
   display: flex;
   flex-direction: column;
@@ -764,7 +782,7 @@ footer .footer p {
   background-color: rgb(218, 31, 53);
 }
 .appcard div:last-child p {
-  padding: 1em;
+  padding: 0.3em;
 }
 
 @media (max-width: 1500px) {
@@ -776,4 +794,55 @@ footer .footer p {
   .appcard {
     width: 70vw;
   }
+}
+
+.viewApplication {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewApplication div:first-child {
+  align-self: center;
+  border: 1px solid #343a40;
+  width: 60vw;
+  padding: 2em;
+}
+.viewApplication div:last-child {
+  display: flex;
+  justify-content: end;
+  align-self: center;
+  width: 60vw;
+}
+
+.approvebutton {
+  width: 90px;
+  background-color: #48ac16;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(8, 99, 9, 0.5);
+  transition: all ease 0.5s;
+  margin: 2em;
+}
+
+.approvebutton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(8, 99, 9, 0.5);
+}
+
+.rejectbutton {
+  width: 90px;
+  background-color: #d61a3c;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(100, 11, 11, 0.5);
+  transition: all ease 0.5s;
+  margin: 2em;
+}
+
+.rejectbutton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100, 11, 11, 0.5);
 }

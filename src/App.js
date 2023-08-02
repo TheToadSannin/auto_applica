@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from './components/Header';
+import Header from "./components/Header";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import CreateApplication from "./pages/students/CreateApplication";
@@ -11,8 +11,7 @@ import TeacherDashboard from "./pages/teachers/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import Footer from "./components/Footer";
 import EditApplication from "./pages/students/EditApplication";
-
-
+import ViewApplication from "./pages/teachers/ViewApplication";
 
 function App() {
   return (
@@ -30,13 +29,15 @@ function App() {
           path="/student/editApplication/:applicationID"
           element={<EditApplication />}
         />
+        <Route
+          path="/teacher/viewapplication/:appid"
+          element={<ViewApplication />}
+        />
 
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
 
-
         <Route path="*" element={<PageNotFound />} />
-
       </Routes>
       <Footer />
     </BrowserRouter>

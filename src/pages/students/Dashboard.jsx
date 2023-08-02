@@ -53,6 +53,13 @@ const Dashboard = () => {
 
   return (
     <main className="dashboard">
+      <button
+        onClick={() => {
+          navigate("/student/createApplication");
+        }}
+      >
+        Create Application
+      </button>
       {applications
         ? applications.map((application, index) => {
             return (
