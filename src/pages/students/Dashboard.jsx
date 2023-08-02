@@ -60,8 +60,9 @@ const Dashboard = () => {
       >
         Create Application
       </button>
-      {applications
-        ? applications.map((application, index) => {
+      <div>
+        {applications
+          ? applications.map((application, index) => {
             return (
               <AppCard
                 key={index}
@@ -71,7 +72,8 @@ const Dashboard = () => {
               />
             );
           })
-        : ""}
+          : ""}
+      </div>
     </main>
   );
 };
@@ -79,14 +81,10 @@ const Dashboard = () => {
 const AppCard = (props) => {
   return (
     <div className="appcard">
-      <div>
-        <p>{props.title}</p>
-      </div>
-      <hr />
-      <div>
-        <p>Status: {props.status}</p>
-        <p> Submission Date: {props.date}</p>
-      </div>
+      <div>{props.date}</div>
+      <div>{props.title}</div>
+      <div><p>{props.stuname}</p><p>{props.stunroll}</p></div>
+      <div><div className={props.status}>{props.status}</div></div>
     </div>
   );
 };

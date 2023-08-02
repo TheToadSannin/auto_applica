@@ -727,7 +727,7 @@ footer .footer p {
 .dashboard {
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1em;
