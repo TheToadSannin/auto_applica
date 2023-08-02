@@ -49,8 +49,9 @@ const Dashboard = () => {
 
   return (
     <main className="dashboard">
-      {applications
-        ? applications.map((application, index) => {
+      <div>
+        {applications
+          ? applications.map((application, index) => {
             return (
               <AppCard
                 key={index}
@@ -58,11 +59,14 @@ const Dashboard = () => {
                 date={application.timestamp}
                 status={application.isAccepted}
                 stuname={application.student.fullname}
+                stunroll={application.student.roll_no}
                 appid={application._id}
               />
             );
           })
-        : ""}
+          : ""}
+          <AppCard/>
+      </div>
     </main>
   );
 };
@@ -76,15 +80,10 @@ const AppCard = (props) => {
         navigate(`/teacher/viewapplication/${props.appid}`);
       }}
     >
-      <div>
-        <p>{props.title}</p>
-      </div>
-      <hr />
-      <div>
-        <p> Submitted by: {props.stuname}</p>
-        <p>Status:{props.status}</p>
-        <p> Submission Date: {props.date}</p>
-      </div>
+      <div>{props.date}</div>
+      <div>{props.title}</div>
+      <div><p>{props.stuname}</p><p>{props.stunroll}</p></div>
+      <div><div className={props.status}>{props.status}</div></div>
     </div>
   );
 };

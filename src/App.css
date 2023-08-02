@@ -727,8 +727,16 @@ footer .footer p {
 .dashboard {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
   align-items: center;
+  padding: 1em;
+}
+
+.dashboard>div{
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .dashboard button {
@@ -749,16 +757,77 @@ footer .footer p {
 }
 
 .appcard {
+  width: 420px;
+  height: 350px;
+  border-radius: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  width: 1200px;
-  margin: 2em;
-  color: white;
+  justify-content: space-between;
+  padding: 1em;
+  background-image: linear-gradient(to right, #f4442e, #fc9e4f);
+  transition: all ease 0.5s;
 }
-.appcard div:first-child {
+
+.appcard:hover{
+  transform: scale(1.01);
+  box-shadow: 0 0 30px rgba(107, 107, 107, 0.5);
+  cursor: pointer;
+}
+
+.appcard>div{
+  padding: 1em 1.5em;
+}
+.appcard div:first-child{
+  text-align: right;
+}
+
+.appcard div:nth-child(2){
+  font-size: 30px;
+  padding: 0.5em;
+  font-weight: 700;
+}
+.appcard div:nth-child(3){
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+}
+
+.appcard div:last-child div{
+  padding: 0.5em 1em;
+  color: white;
+  width: fit-content;
+  border-radius: 50px;
+}
+.appcard .Accepted{
+  background-color: #48ac16;
+}
+.appcard .Rejected{
+  background-color: #c20000;
+}
+.appcard .Pending{
+  background-color: #893168;
+}
+
+@media (max-width: 1600px) {
+  .dashboard>div{
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    place-items: center;
+  }
+  
+}
+@media (max-width: 1060px) {
+  .dashboard>div{
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 470px) {
+  .appcard{
+    width: 350px;
+  }
+  
+}
+/* .appcard div:first-child {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -771,9 +840,9 @@ footer .footer p {
   z-index: 1;
 }
 .appcard div:first-child p {
-  padding: 1em;
+  padding: 1em; */
   /* background-color: white; */
-}
+/* }
 .appcard div:last-child {
   text-align: right;
   border-radius: 0 0 10px 10px;
@@ -794,7 +863,7 @@ footer .footer p {
   .appcard {
     width: 70vw;
   }
-}
+} */
 
 .viewApplication {
   padding: 1em;

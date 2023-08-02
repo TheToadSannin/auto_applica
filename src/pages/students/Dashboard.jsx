@@ -84,7 +84,7 @@ const AppCard = (props) => {
       </div>
       <hr />
       <div>
-        <p>Status: {props.isAccepted ? "Accepted" : "Pending"}</p>
+        <p>Status: {props.status}</p>
         <p> Submission Date: {props.date}</p>
       </div>
     </div>
