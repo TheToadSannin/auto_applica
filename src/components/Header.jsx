@@ -48,9 +48,12 @@ const Header = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
+
+            {(!isLoading) ? (authenticated ? (<li><Link to={"/" + role + "/dashboard"}>Dashboard</Link></li>) : "") : ""}
+            
           </ul>
           <ul className="actions">
-            <li className={authenticated?"removeUnderLineAuth":""}>
+            <li className={authenticated ? "removeUnderLineAuth" : ""}>
               {!authenticated ? (
                 <Link to="/login">Login</Link>
               ) : (
