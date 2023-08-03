@@ -45,7 +45,7 @@ const Home = () => {
           <div>
             <i className="fa-solid fa-check fa-2xl"></i>
             <h3>Paperless Applications</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+            <p>Embrace paperless applications with auto applica</p>
           </div>
           <div>
             <i className="fa-solid fa-check fa-2xl"></i>
