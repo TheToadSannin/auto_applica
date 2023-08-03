@@ -29,7 +29,7 @@ const About = () => {
               Gaurav <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panwar
             </h2>
-            <p>I am a programmer, designer and chess lover</p>
+            <p>programmer, designer and chess lover</p>
           </div>
           <img src={gaurav} alt="gaurav" />
         </div>
@@ -41,7 +41,7 @@ const About = () => {
               Lucky <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bairagi
             </h2>
-            <p>I am a programmer, designer and anime lover</p>
+            <p>programmer, designer and anime lover</p>
           </div>
           <div className="handles">
             <a href="https://www.linkedin.com/in/lucky-bairagi-7aa96a242/">
