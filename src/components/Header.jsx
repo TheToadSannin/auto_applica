@@ -62,7 +62,16 @@ const Header = () => {
             )}
           </ul>
           <ul className="actions">
-            <li>{!authenticated ? <Link to="/login">Login</Link> : ""}</li>
+            <li>
+              {!authenticated ? (
+                <Link to="/login">Login</Link>
+              ) : (
+                <i
+                  class="fa-solid fa-user fa-lg"
+                  style={{ color: "#000000" }}
+                ></i>
+              )}
+            </li>
             <li>
               {!authenticated ? (
                 <Link to="/signup">Sign-Up</Link>

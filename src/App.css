@@ -301,14 +301,14 @@ footer .footer p {
 
 @keyframes updown {
   0% {
-    bottom: 4em;
+    bottom: 3.5em;
   }
   50% {
     bottom: 2.7em;
   }
 
   100% {
-    bottom: 4em;
+    bottom: 3.5em;
   }
 }
 
@@ -1011,37 +1011,86 @@ footer .footer p {
 }
 
 /* ABOUT US PAGE */
-.about{
+.about {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
-.about>div {
+.about > h1 {
+  font-family: "Tektur", cursive;
+  font-size: 60px;
+  padding: 0.5em 0;
+}
+.about > div {
   width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.about div .gaurav, .about div .lucky{
+.about > div .gaurav .handles,
+.about > div .lucky .handles {
+  display: flex;
+  flex-direction: column;
+}
+.about > div .gaurav .handles a,
+.about > div .lucky .handles a {
+  padding: 1em 0em;
+}
+.about > div .gaurav .handles a i,
+.about > div .lucky .handles a i {
+  transition: all ease-in-out 0.2s;
+}
+
+.about > div .gaurav .handles a i:hover,
+.about > div .lucky .handles a i:hover {
+  transform: scale(1.2);
+}
+
+.about div .gaurav,
+.about div .lucky {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 2em;
 }
-.about div .gaurav >div, .about div .lucky>div{
+
+@media (max-width: 875px) {
+  .about div .gaurav,
+  .about div .lucky {
+    margin: 2em 0em;
+    flex-direction: column;
+  }
+  .about > div .gaurav .handles,
+  .about > div .lucky .handles {
+    flex-direction: row;
+  }
+  .about > div .gaurav .handles a,
+  .about > div .lucky .handles a {
+    padding: 0em 1em;
+  }
+  .about div .gaurav h2,
+  .about div .lucky h2 {
+    padding: 0.5em;
+  }
+}
+
+.about div .gaurav > div,
+.about div .lucky > div {
   padding: 0 1em;
   font-size: 24px;
   text-transform: uppercase;
 }
-.about div .gaurav h2, .about div .lucky h2{
+.about div .gaurav h2,
+.about div .lucky h2 {
   font-size: 60px;
   line-height: 1;
   font-weight: 600;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 }
 
-
-.about div img{
+.about div img {
   width: 400px;
 }
-
