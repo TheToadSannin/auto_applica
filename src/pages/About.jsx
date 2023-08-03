@@ -7,17 +7,23 @@ const About = () => {
     <main className="about">
       <div>
         <h1>For Students, by Students</h1>
-        <div className="team">
-          <div className="gaurav">
-            <img src={gaurav} alt="gaurav" />
-            <h2>Gaurav Panwar</h2>
-            <h2></h2>
+
+        <div className="gaurav">
+          <div>
+            <h2>Gaurav <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panwar</h2>
+            <p>I am a programmer, designer and chess lover</p>
           </div>
-          <div className="lucky">
-            <img src={lucky} alt="" />
-            <h2>Lucky Bairagi</h2>
+          <img src={gaurav} alt="gaurav" />
+        </div>
+
+        <div className="lucky">
+          <img src={lucky} alt="" />
+          <div>
+          <h2>Lucky <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bairagi</h2>
+            <p>I am a programmer, designer and anime lover</p>
           </div>
         </div>
+
       </div>
     </main>
   );
