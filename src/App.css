@@ -132,20 +132,6 @@ footer button {
   position: relative;
 }
 
-footer button::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  inset: 0 0;
-  transition: all ease-in 0.12s;
-}
-
-footer button:hover:after {
-  width: 100%;
-}
-
 footer div ul {
   padding: 2em 0 0 0;
   text-align: left;

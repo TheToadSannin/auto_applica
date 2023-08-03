@@ -27,35 +27,6 @@ const Home = () => {
           </p>
         </div>
         <h1>
-          <span>What</span> are We?
-        </h1>
-        <div>
-          <p>
-            Empowering students, facilitating teacher <span>communication</span>
-            . Our mission: <span>secure</span>, efficient online application{" "}
-            submissions, <span>no physical paperwork.</span>
-          </p>
-          <img src={image2} width={500 + "px"} alt="" />
-        </div>
-        <div className="tryapp">
-          <h1>
-            <span>New </span>To This Website ?
-          </h1>
-          <p>try creating your first free application now!</p>
-          <i
-            className="arrow"
-            class="fa-solid fa-arrow-down fa-2xl"
-            style={{ color: "#7371fc" }}
-          ></i>
-          <button
-            onClick={() => {
-              navigate("/student/createApplication");
-            }}
-          >
-            Create Application
-          </button>
-        </div>
-        <h1>
           <span>Features</span> of Auto Applica
         </h1>
 
@@ -63,7 +34,7 @@ const Home = () => {
           <div>
             <i class="fa-solid fa-list fa-2xl" style={{ color: "#7371fc" }}></i>
             <h3>Application Templates</h3>
-            <p>Pre-built free application templates for various applications</p>
+            <p>Pre-built free application templates for various purposes</p>
           </div>
           <div>
             <i
@@ -94,6 +65,36 @@ const Home = () => {
               the intruders
             </p>
           </div>
+        </div>
+
+        <div className="tryapp">
+          <h1>
+            <span>New </span>To This Website ?
+          </h1>
+          <p>try creating your first free application now!</p>
+          <i
+            className="arrow"
+            class="fa-solid fa-arrow-down fa-2xl"
+            style={{ color: "#7371fc" }}
+          ></i>
+          <button
+            onClick={() => {
+              navigate("/student/createApplication");
+            }}
+          >
+            Create Application
+          </button>
+        </div>
+        <h1>
+          <span>What</span> are We?
+        </h1>
+        <div>
+          <p>
+            Empowering students, facilitating teacher <span>communication</span>
+            . Our mission: <span>secure</span>, efficient online application{" "}
+            submissions, <span>no physical paperwork.</span>
+          </p>
+          <img src={image2} width={500 + "px"} alt="" />
         </div>
       </div>
     </main>
