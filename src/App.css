@@ -1,7 +1,13 @@
 /* CSS for Navbar*/
 
 :root {
+  --moon-stone: #00b2ca;
+  --mindaro: #caff8a;
+  --persian-red: #c3423f;
+  --reseda-green: #646f58;
+  --medium-state-blue: #7371fc;
   --nav-bar-color: #161819;
+  --dark-green: #1c7c54;
 }
 
 body {
@@ -104,19 +110,6 @@ header nav ul li::after {
 header nav ul li:hover:after {
   transition: all ease-in-out 0.15s;
   width: 65%;
-}
-
-.removeUnderLineAuth::after {
-  display: none;
-}
-
-header nav .userIcon {
-  display: block;
-  background-color: #ec2e2e;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  text-align: center;
 }
 
 footer {
@@ -262,7 +255,6 @@ footer .footer p {
 /* HOME PAGE  */
 .homePage {
   padding: 2em;
-  margin-top: 2em;
   display: flex;
   justify-content: center;
   font-family: "Tektur", cursive;
@@ -270,20 +262,16 @@ footer .footer p {
 
 .homePage > div {
   width: 80vw;
-  padding: 2em;
+  padding: 0em;
 }
 
 .homePage div h1 {
-  margin-top: 2em;
+  margin-top: 1em;
   text-align: center;
-  font-size: 4em;
+  font-size: 2.5em;
   letter-spacing: 3px;
   word-spacing: 4px;
   font-weight: 900;
-}
-
-.homePage div h1:first-child {
-  margin-top: 0;
 }
 
 .homePage div div {
@@ -293,7 +281,7 @@ footer .footer p {
 
 .homePage div div p {
   /* text-shadow: 2px 2px 0px #ef233c, -2px -2px 0px cyan; */
-  font-size: 3em;
+  font-size: 2em;
   /* color: white; */
 }
 
@@ -304,7 +292,8 @@ footer .footer p {
 }
 
 .homePage div span {
-  color: #ef233c;
+  /* color: #f46036; */
+  color: var(--medium-state-blue);
 }
 
 @media (max-width: 900px) {
@@ -426,7 +415,8 @@ footer .footer p {
 
 .formMain .form .actionBtn button {
   width: 90px;
-  background-color: #d61a3c;
+  /* background-color: #d61a3c; */
+  background-color: var(--moon-stone);
   color: white;
   padding: 0.5em 1em;
   border-radius: 10px;
@@ -480,7 +470,8 @@ footer .footer p {
 
 .mainSignup .signupForm .actionBtn button {
   width: 90px;
-  background-color: #d61a3c;
+  /* background-color: #d61a3c; */
+  background-color: var(--moon-stone);
   color: white;
   padding: 0.5em 1em;
   border-radius: 10px;
@@ -589,17 +580,20 @@ footer .footer p {
   cursor: pointer;
 }
 
-.applicationMain .cards .card::after {
-  content: "";
-  position: absolute;
-  width: 30%;
+.applicationMain .cards .card {
+  width: 100%;
   height: 100%;
   /* background-color: #ef233c; */
   inset: 0 0;
-  z-index: -1;
+  /* z-index: -1; */
   transition: width ease-in-out 0.3s;
   border-radius: 20px;
-  background-image: linear-gradient(to right, #f4442e, #fc9e4f);
+  background-image: linear-gradient(
+    to right,
+    var(--nav-bar-color),
+    rgb(39, 39, 39)
+  );
+  color: white;
 }
 
 .applicationMain .cards .card:hover:after {
@@ -711,7 +705,8 @@ footer .footer p {
 
 .submitbutton {
   width: 90px;
-  background-color: #d61a3c;
+  /* background-color: #d61a3c; */
+  background-color: var(--dark-green);
   color: white;
   padding: 0.5em 1em;
   border-radius: 10px;
@@ -767,7 +762,12 @@ footer .footer p {
   flex-direction: column;
   justify-content: space-between;
   padding: 1em;
-  background-image: linear-gradient(to right, #f4442e, #fc9e4f);
+  background-image: linear-gradient(
+    to right,
+    var(--nav-bar-color),
+    rgb(39, 39, 39)
+  );
+  color: white;
   transition: all ease 0.5s;
 }
 

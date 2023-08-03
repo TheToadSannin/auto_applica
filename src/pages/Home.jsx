@@ -17,7 +17,7 @@ const Home = () => {
           </span>
         </h1>
         <div>
-          <img src={image1} alt=""/>
+          <img src={image1} width={500 + "px"} alt="" />
           <p>
             <span>Streamline</span> Your Application Submissions: Go{" "}
             <span>Paperless</span> and Submit Applications Online{" "}
@@ -31,9 +31,9 @@ const Home = () => {
           <p>
             Empowering students, facilitating teacher <span>communication</span>
             . Our mission: <span>secure</span>, efficient online application{" "}
-            <span>submissions</span>, no physical paperwork.
+            submissions, <span>no physical paperwork.</span>
           </p>
-          <img src={image2} alt=""/>
+          <img src={image2} width={500 + "px"} alt="" />
         </div>
       </div>
     </main>
