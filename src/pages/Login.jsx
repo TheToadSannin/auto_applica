@@ -128,7 +128,6 @@ const Login = (props) => {
           </div>
 
           <div className="actionBtn">
-            <Link to={"/forgotpassword"}>Forgot Password?</Link>
             <button type="submit" className="">
               Login
             </button>

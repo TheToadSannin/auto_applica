@@ -37,9 +37,28 @@ const Home = () => {
           </p>
           <img src={image2} width={500 + "px"} alt="" />
         </div>
+        <div className="tryapp">
+          <h1>
+            <span>New </span>To This Website ?
+          </h1>
+          <p>try creating your first free application now!</p>
+          <i
+            className="arrow"
+            class="fa-solid fa-arrow-down fa-2xl"
+            style={{ color: "#7371fc" }}
+          ></i>
+          <button
+            onClick={() => {
+              navigate("/student/createApplication");
+            }}
+          >
+            Create Application
+          </button>
+        </div>
         <h1>
           <span>Features</span> of Auto Applica
         </h1>
+
         <div className="features">
           <div>
             <i class="fa-solid fa-list fa-2xl" style={{ color: "#7371fc" }}></i>
@@ -75,23 +94,6 @@ const Home = () => {
               the intruders
             </p>
           </div>
-        </div>
-        <div>
-          <h1>
-            <span>New </span>To This Website ?
-          </h1>
-          <p>try creating your first free application now!</p>
-          <i
-            class="fa-solid fa-arrow-down fa-2xl"
-            style={{ color: "#7371fc" }}
-          ></i>
-          <button
-            onClick={() => {
-              navigate("/student/createApplication");
-            }}
-          >
-            Create Application
-          </button>
         </div>
       </div>
     </main>
