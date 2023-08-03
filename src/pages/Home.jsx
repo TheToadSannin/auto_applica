@@ -3,8 +3,10 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import image1 from "../assets/guyInRed.png";
 import image2 from "../assets/undraw_real_time_sync.svg";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   document.getElementsByTagName("title")[0].text = "Home";
 
   return (
@@ -35,28 +37,61 @@ const Home = () => {
           </p>
           <img src={image2} width={500 + "px"} alt="" />
         </div>
-        <h1>Features of Auto Applica</h1>
+        <h1>
+          <span>Features</span> of Auto Applica
+        </h1>
         <div className="features">
           <div>
-            <i className="fa-solid fa-check fa-2xl"></i>
+            <i class="fa-solid fa-list fa-2xl" style={{ color: "#7371fc" }}></i>
             <h3>Application Templates</h3>
-            <p>Time-Saving pre-built application templates for your, Sick Leave, Sport Leave, Certificate Leaves, Holiday Leaves applications</p>
+            <p>Pre-built free application templates for various applications</p>
           </div>
           <div>
-            <i className="fa-solid fa-check fa-2xl"></i>
+            <i
+              class="fa-solid fa-mobile-screen fa-2xl"
+              style={{ color: "#7371fc" }}
+            ></i>
             <h3>Paperless Applications</h3>
-            <p>Embrace paperless applications with auto applica</p>
+            <p>
+              Embrace the tradition of paperless applications with auto applica
+            </p>
           </div>
           <div>
-            <i className="fa-solid fa-check fa-2xl"></i>
-            <h3>Lorem, ipsum dolor.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+            <i
+              class="fa-regular fa-clock fa-2xl"
+              style={{ color: "#7371fc" }}
+            ></i>
+            <h3>Save Time</h3>
+            <p>Your Precious time does not worth just writing applications.</p>
           </div>
           <div>
-            <i className="fa-solid fa-check fa-2xl"></i>
-            <h3>Lorem, ipsum dolor.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+            <i
+              class="fa-solid fa-shield-halved fa-2xl"
+              style={{ color: "#7371fc" }}
+            ></i>
+            <h3>Secure Communication</h3>
+            <p>
+              Send you applications with user encryption without worrying about
+              the intruders
+            </p>
           </div>
+        </div>
+        <div>
+          <h1>
+            <span>New </span>To This Website ?
+          </h1>
+          <p>try creating your first free application now!</p>
+          <i
+            class="fa-solid fa-arrow-down fa-2xl"
+            style={{ color: "#7371fc" }}
+          ></i>
+          <button
+            onClick={() => {
+              navigate("/student/createApplication");
+            }}
+          >
+            Create Application
+          </button>
         </div>
       </div>
     </main>
