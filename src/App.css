@@ -266,7 +266,7 @@ footer .footer p {
 }
 
 .homePage div h1 {
-  margin-top: 1em;
+  margin: 1em 0;
   text-align: center;
   font-size: 2.5em;
   letter-spacing: 3px;
@@ -331,6 +331,31 @@ footer .footer p {
   .homePage div div p {
     font-size: 2em;
   }
+}
+
+.homePage .features{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.homePage .features div{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(11, 11, 11, 0.5);
+  padding: 1em;
+  width: 300px;
+  margin: 1em;
+}
+.homePage .features div i{
+  padding: 1em;
+}
+.homePage .features div p{
+  text-align: center;
+  font-size: 18px;
+}
+.homePage .features div h3{
+  font-size: 24px;
+  padding-bottom: 0.5em;
 }
 
 /* ERROR: PAGE NOT FOUND PAGE */

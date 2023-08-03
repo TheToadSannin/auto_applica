@@ -35,6 +35,29 @@ const Home = () => {
           </p>
           <img src={image2} width={500 + "px"} alt="" />
         </div>
+        <h1>Features of Auto Applica</h1>
+        <div className="features">
+          <div>
+            <i className="fa-solid fa-check fa-2xl"></i>
+            <h3>Application Templates</h3>
+            <p>Time-Saving pre-built application templates for your, Sick Leave, Sport Leave, Certificate Leaves, Holiday Leaves applications</p>
+          </div>
+          <div>
+            <i className="fa-solid fa-check fa-2xl"></i>
+            <h3>Paperless Applications</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+          </div>
+          <div>
+            <i className="fa-solid fa-check fa-2xl"></i>
+            <h3>Lorem, ipsum dolor.</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+          </div>
+          <div>
+            <i className="fa-solid fa-check fa-2xl"></i>
+            <h3>Lorem, ipsum dolor.</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quibusdam neque possimus, quis repellat illum.</p>
+          </div>
+        </div>
       </div>
     </main>
   );
