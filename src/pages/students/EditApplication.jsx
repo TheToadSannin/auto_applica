@@ -9,6 +9,7 @@ import AuthContext from "../../providers/AuthContext";
 import Notification from "../../components/Notification";
 
 const EditApplication = () => {
+  document.getElementsByTagName("title")[0].text = "Edit";
   const param = useParams();
   const { user, role, isLoading, authenticated } = useContext(AuthContext);
   const [application, setApplication] = useState();

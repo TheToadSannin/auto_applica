@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 
 const Signup = () => {
+  document.getElementsByTagName("title")[0].text = "Signup";
+
+  
   const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
 
@@ -23,7 +26,6 @@ const Signup = () => {
     setcredentials({ ...credentials, [name]: value });
   };
 
-  document.getElementsByTagName("title")[0].text = "Signup";
 
   const handleDropdown = (value) => {
     const roll_no = document.getElementById("roll_no");

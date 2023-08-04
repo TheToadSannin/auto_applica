@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const CreateApplication = () => {
+  document.getElementsByTagName("title")[0].text = "Create";
   const [applicationTemplates, setApplicationsTemplates] = useState(null);
   const { user, role, isLoading, authenticated } = useContext(AuthContext);
 

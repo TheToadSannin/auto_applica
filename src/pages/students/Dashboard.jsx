@@ -5,6 +5,7 @@ import { useContext } from "react";
 import AuthContext from "../../providers/AuthContext";
 
 const Dashboard = () => {
+  document.getElementsByTagName("title")[0].text = "Dashboard";
   let navigate = useNavigate();
   const [applications, setApplications] = useState(null);
   const { user, role, isLoading, authenticated } = useContext(AuthContext);

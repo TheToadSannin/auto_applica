@@ -3,6 +3,8 @@ import gaurav from "../assets/gaurav_avatar.png";
 import lucky from "../assets/lucky_avatar.png";
 
 const About = () => {
+  document.getElementsByTagName("title")[0].text = "About";
+
   return (
     <main className="about">
       <h1>

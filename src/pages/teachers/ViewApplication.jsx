@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import Notification from "../../components/Notification";
 
 const ViewApplication = () => {
+  document.getElementsByTagName("title")[0].text = "View";
   const param = useParams();
   const navigate = useNavigate();
   const { user, role, isLoading, authenticated } = useContext(AuthContext);

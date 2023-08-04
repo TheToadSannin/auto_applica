@@ -1,6 +1,9 @@
 import React from 'react'
 
 function PageNotFound() {
+
+  document.getElementsByTagName("title")[0].text = "Page Not Found";
+
   return (
     <div className='error404page'>
       <p>

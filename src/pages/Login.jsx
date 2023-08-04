@@ -6,6 +6,9 @@ import Dropdown from "../components/Dropdown";
 import AuthContext from "../providers/AuthContext";
 
 const Login = (props) => {
+
+  document.getElementsByTagName("title")[0].text = "Login";
+
   let navigate = useNavigate();
   const {
     user,

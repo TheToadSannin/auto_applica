@@ -6,8 +6,9 @@ import image2 from "../assets/undraw_real_time_sync.svg";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate();
   document.getElementsByTagName("title")[0].text = "Home";
+  
+  const navigate = useNavigate();
 
   return (
     <main className="homePage">
