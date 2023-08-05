@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   document.getElementsByTagName("title")[0].text = "Home";
-  
+
   const navigate = useNavigate();
 
   return (

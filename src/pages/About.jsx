@@ -8,7 +8,7 @@ const About = () => {
   return (
     <main className="about">
       <h1>
-        <u>ABOUT US</u>
+        <b>ABOUT US</b>
       </h1>
       <div>
         <div className="gaurav">
@@ -16,13 +16,13 @@ const About = () => {
             <a href="https://www.linkedin.com/in/gaurav-panwar-85822a22b/">
               <i
                 class="fa-brands fa-linkedin fa-lg"
-                style={{ color: "#000000" }}
+                style={{ color: "#7371fc" }}
               ></i>
             </a>
             <a href="https://github.com/TheToadSannin">
               <i
                 class="fa-brands fa-github fa-lg"
-                style={{ color: "#000000" }}
+                style={{ color: "#7371fc" }}
               ></i>
             </a>
           </div>
@@ -49,13 +49,13 @@ const About = () => {
             <a href="https://www.linkedin.com/in/lucky-bairagi-7aa96a242/">
               <i
                 class="fa-brands fa-linkedin fa-lg"
-                style={{ color: "#000000" }}
+                style={{ color: "#7371fc" }}
               ></i>
             </a>
             <a href="https://github.com/RudraSama">
               <i
                 class="fa-brands fa-github fa-lg"
-                style={{ color: "#000000" }}
+                style={{ color: "#7371fc" }}
               ></i>
             </a>
           </div>
