@@ -2,8 +2,6 @@ const express = require("express");
 const Application = require("../models/Applications");
 const applicationTemplate = require("../models/ApplicationTemplates");
 const applicationController = require("../controllers/applicationController");
-const Student = require("../models/Students");
-const { useAsyncError } = require("react-router-dom");
 
 const router = express.Router();
 
