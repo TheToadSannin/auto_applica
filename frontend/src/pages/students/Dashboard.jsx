@@ -12,11 +12,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      if (!authenticated || role != "student") {
+      if (!authenticated || role !== "student") {
         navigate("/login");
       }
     }
-  }, [isLoading, authenticated]);
+  }, [isLoading, authenticated, navigate, role]);
 
   useEffect(() => {
     const getApplication = async () => {
@@ -46,7 +46,7 @@ const Dashboard = () => {
     if (!isLoading) {
       getApplication();
     }
-  }, [isLoading]);
+  }, [isLoading, user._id]);
 
   // if((!userData.userData ) || userData.role != "student"){
   //     return navigate("/login");

@@ -6,18 +6,18 @@ import { useNavigate } from "react-router-dom";
 const CreateApplication = () => {
   document.getElementsByTagName("title")[0].text = "Create";
   const [applicationTemplates, setApplicationsTemplates] = useState(null);
-  const { user, role, isLoading, authenticated } = useContext(AuthContext);
+  const {role, isLoading, authenticated } = useContext(AuthContext);
 
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!isLoading) {
-      if (!authenticated || role != "student") {
+      if (!authenticated || role !== "student") {
         navigate("/login");
       }
     }
-  }, [isLoading, authenticated])
+  }, [isLoading, authenticated, navigate, role])
 
   useEffect(() => {
     const getApplicationTemplates = async () => {
@@ -64,7 +64,7 @@ const AppCard = (props) => {
   return (
     <div className="card" onClick={ ()=>{navigate(`/student/editApplication/${props.appid}`)} }>
       <div>
-        <img src={props.icon} width={100 + "%"} />
+        <img src={props.icon} width={100 + "%"} alt ='icon'/>
       </div>
       <div className="title-div">
         <h1>{props.subject}</h1>

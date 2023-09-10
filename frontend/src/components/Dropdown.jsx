@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 import { useEffect } from 'react';
 
 const Dropdown = ({ onChange = ()=> {}}) => {
@@ -15,7 +14,7 @@ const Dropdown = ({ onChange = ()=> {}}) => {
                 onChange(value);
             })
         })
-    }, [])
+    }, [onChange])
 
     return (
         <div className="dropdown">

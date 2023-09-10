@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import image1 from "../assets/guyInRed.png";
 import image2 from "../assets/undraw_real_time_sync.svg";
 import { useNavigate } from "react-router-dom";

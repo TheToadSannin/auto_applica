@@ -9,7 +9,6 @@ const Login = (props) => {
 
   let navigate = useNavigate();
   const {
-    user,
     setUser,
     role,
     setRole,
@@ -25,7 +24,7 @@ const Login = (props) => {
         navigate(`/${role}/dashboard`);
       }
     }
-  }, [isLoading, authenticated]);
+  }, [isLoading, authenticated, navigate, role]);
 
   const [credentials, setcredentials] = useState({
     email: "",

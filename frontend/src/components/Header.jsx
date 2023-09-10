@@ -6,7 +6,7 @@ import AuthContext from "../providers/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { user, role, isLoading, authenticated, setAuthenticated } =
+  const {role, isLoading, authenticated, setAuthenticated } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
