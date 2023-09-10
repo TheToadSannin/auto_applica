@@ -1,5 +1,6 @@
+require('dotenv').config()
 var jwt = require("jsonwebtoken");
-const PRIVAT_KEY = "uvJPJek0Bb0ZwaSoDJ7TqcwqVZJfSNqN";
+const PRIVAT_KEY = process.env.PRIVATE_KEY;
 
 const Student = require("../../models/Students");
 const Teacher = require("../../models/Teachers");

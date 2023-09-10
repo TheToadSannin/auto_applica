@@ -1,4 +1,5 @@
 //Student Authorization
+require('dotenv').config();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
@@ -6,7 +7,7 @@ const { validationResult } = require("express-validator");
 
 var jwt = require("jsonwebtoken")
 
-const PRIVATE_KEY = "uvJPJek0Bb0ZwaSoDJ7TqcwqVZJfSNqN";
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 const student_collection = mongoose.model("students"); //import "students" collection
 const teacher_collection = mongoose.model("teachers"); //import "teachers" collection

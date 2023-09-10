@@ -1,6 +1,6 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
-const mongoUri =
-  `mongodb+srv://gauxrav:14aca70dc47e69g@cluster0.lctxgaw.mongodb.net/auto_applica`;
+const mongoUri = process.env.MONGO_URL;
 const mongoDB = async () => {
   await mongoose
     .connect(mongoUri)
