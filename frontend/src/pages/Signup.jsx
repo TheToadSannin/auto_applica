@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 
@@ -105,12 +104,6 @@ const Signup = () => {
     <main className="mainSignup">
       <div className="">
         <form onSubmit={handleSubmit} className="signupForm">
-          {/* <div className="role_dropdown">
-            <select name="role_dropdown" id="role_dropdown">
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
-            </select>
-          </div> */}
 
           <Dropdown onChange={handleDropdown} />
           <div className="errorBox">

@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         setAuthenticated,
       }}
     >
-      {children}
+      {children}  
     </AuthContext.Provider>
   );
 };

@@ -39,10 +39,10 @@ const handleStudentLogin = async (req, res) => {
       await student_data.save({ validModifiedOnly: true });
       student_data.password = '';
 
-
+      //password is correct
       return res.json({ msg: "Login Successful", success: true, user: student_data, token: token });
     }
-    //password is correct
+    
     res.json({ msg: "Invalid Username/Password", success: false })
   } catch (error) {
     console.log(error);

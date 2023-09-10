@@ -6,7 +6,7 @@ const registerController = require("../controllers/registerController");
 
 router.post("/createStudent",
  [
-    body("fullname", "Invalid Name").isString().isLength({ min: 5 }),
+    body("fullname", "Invalid Name").isString().isLength({ min:5 }),
     body("email", "invalid email").isEmail(),
     body("roll_no", "Invalid Name").isString(),
     body("standard", "Invalid Name").isString(),

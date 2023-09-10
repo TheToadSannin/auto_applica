@@ -846,7 +846,7 @@ footer .footer p {
     var(--nav-bar-color),
     rgb(39, 39, 39)
   );
-
+  margin-bottom: 20px;
   color: white;
   transition: all ease 0.5s;
 }

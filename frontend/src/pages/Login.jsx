@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../components/Header";
 import Dropdown from "../components/Dropdown";
 import AuthContext from "../providers/AuthContext";
 
 const Login = (props) => {
-
   document.getElementsByTagName("title")[0].text = "Login";
 
   let navigate = useNavigate();
@@ -98,7 +96,7 @@ const Login = (props) => {
       navigate("/login");
     }
   };
-
+  
   return (
     <main className="formMain">
       <div className=" ">

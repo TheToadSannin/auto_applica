@@ -23,6 +23,7 @@ const mid_auth = async (req, res, next) =>{
         }
     }
     else if(role === "BearerTeacher"){
+        
         try{
             const token = req.headers["x-access-token"].split(" ")[1];
             let teacher = jwt.verify(token, PRIVAT_KEY);
