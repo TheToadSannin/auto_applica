@@ -10,10 +10,6 @@
   --dark-green: #1c7c54;
 }
 
-body {
-  /* background-color: #262a2e; */
-}
-
 header {
   display: flex;
   justify-content: center;
